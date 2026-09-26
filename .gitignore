@@ -1,0 +1,12 @@
+.env
+*.db
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+node_modules/
+.next/
+backend/static/audio/*
+!backend/static/audio/.gitkeep
+.DS_Store
