@@ -1,0 +1,56 @@
+{
+  "huddle_id": "17a686a6-e516-4470-86ac-dc26a5f5b5b2",
+  "question": {
+    "question_id": "27846610-e0cc-42ed-b86b-3998183ce1c3",
+    "question": "What has changed recently in treatment sequencing for breast cancer?",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topic": "Treatment sequencing",
+    "intent": "Clinical update",
+    "key_context": [
+      "Synthetic HR+/HER2- metastatic breast cancer",
+      "complicated treatment history"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "SIMULATED:BREAST-TRIALS-03",
+      "title": "[SIMULATED] Breast cancer clinical trials search placeholder",
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, clinical trial, enrolling, treatment sequencing.",
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "url": null,
+      "verified": false
+    },
+    {
+      "id": "SIMULATED:BREAST-SEQUENCING-01",
+      "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial.",
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "url": null,
+      "verified": false
+    },
+    {
+      "id": "SIMULATED:BREAST-GUIDELINE-02",
+      "title": "[SIMULATED] Breast cancer guideline update search placeholder",
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, guideline update, monitoring, recently changed.",
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "expert": {
+    "name": "Dr. Maya Patel",
+    "title": "Medical Oncologist (Fictional Demo Profile)",
+    "is_demo": true
+  },
+  "expert_responses": [],
+  "safety_rules": [
+    "Do not diagnose, prescribe, or claim certainty.",
+    "Use only the supplied evidence snippets and expert response text.",
+    "Keep EVIDENCE, EXPERT OPINION, and AI SYNTHESIS separate.",
+    "Evidence snippets are verbatim source text and must not be rewritten.",
+    "Every cited source id must belong to the huddle's attached evidence.",
+    "Always include an UNCERTAINTY section."
+  ],
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes."
+}

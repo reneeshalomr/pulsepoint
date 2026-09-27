@@ -54,7 +54,7 @@ def test_golden_path_oncology_question_matches_maya_patel_first(client):
 def test_match_missing_question_returns_404(client):
     response = client.get("/api/experts/match/unknown-question")
     assert response.status_code == 404
-    assert response.json() == {"detail": "Question not found"}
+    assert response.json() == {"detail": "Question not found", "code": "http_404"}
 
 
 def test_available_expert_wins_availability_tie_deterministically():

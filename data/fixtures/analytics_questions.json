@@ -1,0 +1,311 @@
+{
+  "total": 81,
+  "by_specialty": [
+    {
+      "name": "Oncology",
+      "count": 39
+    },
+    {
+      "name": "Cardiology",
+      "count": 26
+    },
+    {
+      "name": "Endocrinology",
+      "count": 16
+    }
+  ],
+  "by_condition": [
+    {
+      "name": "Breast cancer",
+      "count": 33
+    },
+    {
+      "name": "Atrial fibrillation",
+      "count": 14
+    },
+    {
+      "name": "Heart failure",
+      "count": 12
+    },
+    {
+      "name": "Type 2 diabetes",
+      "count": 10
+    },
+    {
+      "name": "Lung cancer",
+      "count": 6
+    },
+    {
+      "name": "Obesity",
+      "count": 6
+    }
+  ],
+  "by_topic": [
+    {
+      "name": "Treatment sequencing",
+      "count": 39
+    },
+    {
+      "name": "Clinical trials",
+      "count": 11
+    },
+    {
+      "name": "Side-effect management",
+      "count": 10
+    },
+    {
+      "name": "Access/coverage",
+      "count": 8
+    },
+    {
+      "name": "Guideline update",
+      "count": 6
+    },
+    {
+      "name": "Monitoring",
+      "count": 4
+    },
+    {
+      "name": "Drug interactions",
+      "count": 3
+    }
+  ],
+  "by_intent": [
+    {
+      "name": "Clinical update",
+      "count": 20
+    },
+    {
+      "name": "Safety concern",
+      "count": 19
+    },
+    {
+      "name": "Access question",
+      "count": 15
+    },
+    {
+      "name": "Evidence review",
+      "count": 14
+    },
+    {
+      "name": "Case consult",
+      "count": 13
+    }
+  ],
+  "unanswered": [
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Breast cancer",
+      "count": 5
+    },
+    {
+      "topic": "Clinical trials",
+      "condition": "Breast cancer",
+      "count": 4
+    },
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Lung cancer",
+      "count": 3
+    },
+    {
+      "topic": "Access/coverage",
+      "condition": "Breast cancer",
+      "count": 2
+    },
+    {
+      "topic": "Side-effect management",
+      "condition": "Breast cancer",
+      "count": 2
+    },
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Atrial fibrillation",
+      "count": 2
+    },
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Type 2 diabetes",
+      "count": 2
+    },
+    {
+      "topic": "Access/coverage",
+      "condition": "Atrial fibrillation",
+      "count": 1
+    },
+    {
+      "topic": "Access/coverage",
+      "condition": "Heart failure",
+      "count": 1
+    },
+    {
+      "topic": "Access/coverage",
+      "condition": "Lung cancer",
+      "count": 1
+    },
+    {
+      "topic": "Access/coverage",
+      "condition": "Type 2 diabetes",
+      "count": 1
+    },
+    {
+      "topic": "Clinical trials",
+      "condition": "Type 2 diabetes",
+      "count": 1
+    },
+    {
+      "topic": "Guideline update",
+      "condition": "Breast cancer",
+      "count": 1
+    },
+    {
+      "topic": "Guideline update",
+      "condition": "Type 2 diabetes",
+      "count": 1
+    },
+    {
+      "topic": "Side-effect management",
+      "condition": "Atrial fibrillation",
+      "count": 1
+    },
+    {
+      "topic": "Side-effect management",
+      "condition": "Obesity",
+      "count": 1
+    },
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Heart failure",
+      "count": 1
+    },
+    {
+      "topic": "Treatment sequencing",
+      "condition": "Obesity",
+      "count": 1
+    }
+  ],
+  "emerging": [],
+  "timeseries": [
+    {
+      "date": "2026-08-29",
+      "count": 2
+    },
+    {
+      "date": "2026-08-30",
+      "count": 3
+    },
+    {
+      "date": "2026-08-31",
+      "count": 3
+    },
+    {
+      "date": "2026-09-01",
+      "count": 0
+    },
+    {
+      "date": "2026-09-02",
+      "count": 3
+    },
+    {
+      "date": "2026-09-03",
+      "count": 5
+    },
+    {
+      "date": "2026-09-04",
+      "count": 1
+    },
+    {
+      "date": "2026-09-05",
+      "count": 3
+    },
+    {
+      "date": "2026-09-06",
+      "count": 5
+    },
+    {
+      "date": "2026-09-07",
+      "count": 2
+    },
+    {
+      "date": "2026-09-08",
+      "count": 4
+    },
+    {
+      "date": "2026-09-09",
+      "count": 5
+    },
+    {
+      "date": "2026-09-10",
+      "count": 5
+    },
+    {
+      "date": "2026-09-11",
+      "count": 2
+    },
+    {
+      "date": "2026-09-12",
+      "count": 3
+    },
+    {
+      "date": "2026-09-13",
+      "count": 3
+    },
+    {
+      "date": "2026-09-14",
+      "count": 2
+    },
+    {
+      "date": "2026-09-15",
+      "count": 6
+    },
+    {
+      "date": "2026-09-16",
+      "count": 1
+    },
+    {
+      "date": "2026-09-17",
+      "count": 1
+    },
+    {
+      "date": "2026-09-18",
+      "count": 2
+    },
+    {
+      "date": "2026-09-19",
+      "count": 3
+    },
+    {
+      "date": "2026-09-20",
+      "count": 4
+    },
+    {
+      "date": "2026-09-21",
+      "count": 2
+    },
+    {
+      "date": "2026-09-22",
+      "count": 3
+    },
+    {
+      "date": "2026-09-23",
+      "count": 0
+    },
+    {
+      "date": "2026-09-24",
+      "count": 1
+    },
+    {
+      "date": "2026-09-25",
+      "count": 2
+    },
+    {
+      "date": "2026-09-26",
+      "count": 4
+    },
+    {
+      "date": "2026-09-27",
+      "count": 1
+    }
+  ],
+  "includes_seeded_data": true
+}

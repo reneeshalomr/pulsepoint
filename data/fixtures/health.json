@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "db": "ok",
+  "llm_provider": "none",
+  "corpus_size": 5,
+  "experts_count": 0
+}

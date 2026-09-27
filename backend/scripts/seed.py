@@ -8,8 +8,10 @@ from pathlib import Path
 from sqlmodel import Session, select
 
 from app.db import engine, init_db
-from app.models import QuestionSignal
-from app.taxonomy import CONDITIONS_BY_SPECIALTY, INTENTS, SPECIALTIES, TOPICS
+from app.models import EvidenceChunk, EvidenceSource, QuestionSignal
+from app.services.matching import ensure_demo_experts
+from app.services.retrieval import load_corpus, split_chunks
+from app.taxonomy import CONDITIONS_BY_SPECIALTY, INTENTS, TOPICS
 
 ROOT = Path(__file__).resolve().parents[2]
 SIGNALS_PATH = ROOT / "data" / "demo_signals.json"
@@ -68,10 +70,33 @@ def ensure_demo_signals(session: Session, records: list[dict] | None = None) -> 
     session.commit()
 
 
+def ensure_corpus_sources(session: Session) -> None:
+    """Seed the committed corpus without introducing duplicate source identities."""
+    for record in load_corpus():
+        external_id = record.get("external_id")
+        if not external_id or session.exec(select(EvidenceSource.id).where(
+                EvidenceSource.external_id == external_id)).first():
+            continue
+        source = EvidenceSource(
+            external_id=external_id, title=record["title"], source_type=record["source_type"],
+            date=record.get("date"), url=record.get("url"), citation=record["citation"],
+            publisher=record.get("publisher", ""), specialty=record.get("specialty", "Other"),
+            condition=record.get("condition", "Other"), topics=record.get("topics", []),
+            verified=bool(record.get("verified", False)), full_text=record.get("full_text", ""),
+        )
+        session.add(source)
+        session.flush()
+        for index, text in enumerate(split_chunks(source.full_text)):
+            session.add(EvidenceChunk(source_id=source.id, chunk_index=index, text=text))
+    session.commit()
+
+
 def main() -> None:
     records = write_demo_signals()
     init_db()
     with Session(engine) as session:
+        ensure_demo_experts(session)
+        ensure_corpus_sources(session)
         ensure_demo_signals(session, records)
 
 

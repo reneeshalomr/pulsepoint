@@ -1,0 +1,67 @@
+{
+  "question_id": "27846610-e0cc-42ed-b86b-3998183ce1c3",
+  "retrieval_method": "fallback_condition_match",
+  "sources": [
+    {
+      "id": "SIMULATED:BREAST-TRIALS-03",
+      "title": "[SIMULATED] Breast cancer clinical trials search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, clinical trial, enrolling, treatment sequencing.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.5,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Clinical trials",
+        "Treatment sequencing"
+      ],
+      "external_id": "SIMULATED:BREAST-TRIALS-03"
+    },
+    {
+      "id": "SIMULATED:BREAST-SEQUENCING-01",
+      "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.5,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Clinical trials"
+      ],
+      "external_id": "SIMULATED:BREAST-SEQUENCING-01"
+    },
+    {
+      "id": "SIMULATED:BREAST-GUIDELINE-02",
+      "title": "[SIMULATED] Breast cancer guideline update search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, guideline update, monitoring, recently changed.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.5,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Guideline update",
+        "Monitoring"
+      ],
+      "external_id": "SIMULATED:BREAST-GUIDELINE-02"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ from sqlmodel import Session, select
 from app.db import get_session
 from app.models import EvidenceSource
 from app.schemas import EvidenceImport
-from app.services.retrieval import load_corpus, search_sources_with_method
+from app.services.retrieval import load_corpus, retrieve_for_question_with_method, search_sources_with_method
 
 router = APIRouter(prefix="/api/evidence", tags=["evidence"])
 
@@ -24,6 +24,15 @@ def search_evidence(
                                                  specialty=specialty, limit=limit)
     return {"query": search_query, "retrieval_method": method, "count": len(sources),
             "limit": limit, "sources": sources}
+
+
+@router.get("/{question_id}")
+def question_evidence(question_id: str, session: Session = Depends(get_session)) -> dict:
+    try:
+        sources, method = retrieve_for_question_with_method(session, question_id)
+    except LookupError:
+        raise HTTPException(status_code=404, detail="Question not found")
+    return {"question_id": question_id, "retrieval_method": method, "sources": sources}
 
 
 @router.post("", status_code=201)

@@ -1,0 +1,18 @@
+{
+  "huddle_id": "9fadffa7-9e9a-41ec-a6e3-448b2bc5c19a",
+  "status": "responded",
+  "response": {
+    "id": "c770d336-4839-4654-ab0f-0b4b4c60f4a4",
+    "mode": "text",
+    "transcript": null,
+    "duration_seconds": null,
+    "created_at": "2026-09-27T01:29:34.853895Z",
+    "text": "Simulated response from a fictional demo profile. This response makes no clinical claims. For discussion, review the attached retrieved source IDs: [SIMULATED:BREAST-TRIALS-03], [SIMULATED:BREAST-SEQUENCING-01], [SIMULATED:BREAST-GUIDELINE-02].",
+    "huddle_id": "9fadffa7-9e9a-41ec-a6e3-448b2bc5c19a",
+    "expert_id": "demo-onc-001",
+    "audio_url": null,
+    "is_simulated": true
+  },
+  "expert_disclaimer": "Demo profile \u2014 fictional expert for prototype purposes.",
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes."
+}

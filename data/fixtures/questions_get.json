@@ -1,0 +1,15 @@
+{
+  "question_id": "27846610-e0cc-42ed-b86b-3998183ce1c3",
+  "specialty": "Oncology",
+  "condition": "Breast cancer",
+  "topic": "Treatment sequencing",
+  "intent": "Clinical update",
+  "question": "What has changed recently in treatment sequencing for breast cancer?",
+  "key_context": [
+    "Synthetic HR+/HER2- metastatic breast cancer",
+    "complicated treatment history"
+  ],
+  "extraction_method": "demo_cache",
+  "confidence": 1.0,
+  "phi_detected": false
+}

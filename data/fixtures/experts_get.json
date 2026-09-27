@@ -1,0 +1,27 @@
+{
+  "expert": {
+    "id": "demo-onc-001",
+    "name": "Dr. Maya Patel",
+    "title": "Medical Oncologist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": [
+      "Breast cancer"
+    ],
+    "topics": [
+      "Treatment sequencing",
+      "Clinical trials",
+      "Guideline update"
+    ],
+    "expertise": [
+      "Breast cancer",
+      "Treatment sequencing",
+      "Clinical trials",
+      "HER2",
+      "CDK4/6"
+    ],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real clinician, practice history, or credential is represented.",
+    "is_demo": true
+  },
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes."
+}

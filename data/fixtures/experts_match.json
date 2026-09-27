@@ -1,0 +1,74 @@
+{
+  "experts": [
+    {
+      "id": "demo-onc-001",
+      "name": "Dr. Maya Patel",
+      "title": "Medical Oncologist (Fictional Demo Profile)",
+      "specialty": "Oncology",
+      "expertise": [
+        "Breast cancer",
+        "Treatment sequencing",
+        "Clinical trials",
+        "HER2",
+        "CDK4/6"
+      ],
+      "match_score": 93,
+      "availability": "available",
+      "score_breakdown": {
+        "specialty": 35,
+        "condition": 25,
+        "topic": 20,
+        "expertise": 3,
+        "availability": 10
+      },
+      "is_demo": true
+    },
+    {
+      "id": "demo-onc-004",
+      "name": "Dr. Taylor Sample",
+      "title": "Oncology Specialist (Fictional Demo Profile)",
+      "specialty": "Oncology",
+      "expertise": [
+        "Lung cancer",
+        "Treatment sequencing",
+        "Clinical trials",
+        "EGFR",
+        "ALK"
+      ],
+      "match_score": 67,
+      "availability": "available",
+      "score_breakdown": {
+        "specialty": 35,
+        "condition": 0,
+        "topic": 20,
+        "expertise": 2,
+        "availability": 10
+      },
+      "is_demo": true
+    },
+    {
+      "id": "demo-onc-003",
+      "name": "Dr. Casey Placeholder",
+      "title": "Oncology Specialist (Fictional Demo Profile)",
+      "specialty": "Oncology",
+      "expertise": [
+        "Breast cancer",
+        "Lung cancer",
+        "Side-effect management",
+        "Access/coverage"
+      ],
+      "match_score": 61,
+      "availability": "offline",
+      "score_breakdown": {
+        "specialty": 35,
+        "condition": 25,
+        "topic": 0,
+        "expertise": 1,
+        "availability": 0
+      },
+      "is_demo": true
+    }
+  ],
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes.",
+  "score_note": "Routing relevance score, not a measure of clinical expertise or correctness."
+}

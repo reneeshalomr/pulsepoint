@@ -1,0 +1,109 @@
+{
+  "query": "breast cancer",
+  "retrieval_method": "bm25",
+  "count": 5,
+  "limit": 5,
+  "sources": [
+    {
+      "id": "SIMULATED:DIABETES-01",
+      "title": "[SIMULATED] Type 2 diabetes evidence search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: type 2 diabetes, A1c, metformin, GLP-1, monitoring.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.0,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Endocrinology",
+      "condition": "Type 2 diabetes",
+      "topics": [
+        "Guideline update",
+        "Monitoring"
+      ],
+      "external_id": "SIMULATED:DIABETES-01"
+    },
+    {
+      "id": "SIMULATED:HEART-FAILURE-01",
+      "title": "[SIMULATED] Heart failure monitoring search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: heart failure, HFrEF, ejection fraction, SGLT2, monitoring.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.0,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Cardiology",
+      "condition": "Heart failure",
+      "topics": [
+        "Monitoring",
+        "Guideline update"
+      ],
+      "external_id": "SIMULATED:HEART-FAILURE-01"
+    },
+    {
+      "id": "SIMULATED:BREAST-SEQUENCING-01",
+      "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.0,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Clinical trials"
+      ],
+      "external_id": "SIMULATED:BREAST-SEQUENCING-01"
+    },
+    {
+      "id": "SIMULATED:BREAST-GUIDELINE-02",
+      "title": "[SIMULATED] Breast cancer guideline update search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, guideline update, monitoring, recently changed.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.0,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Guideline update",
+        "Monitoring"
+      ],
+      "external_id": "SIMULATED:BREAST-GUIDELINE-02"
+    },
+    {
+      "id": "SIMULATED:BREAST-TRIALS-03",
+      "title": "[SIMULATED] Breast cancer clinical trials search placeholder",
+      "type": "Simulated (demo placeholder)",
+      "date": null,
+      "snippet": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, clinical trial, enrolling, treatment sequencing.",
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "relevance": 0.0,
+      "verified": false,
+      "source_type": "Simulated (demo placeholder)",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Clinical trials",
+        "Treatment sequencing"
+      ],
+      "external_id": "SIMULATED:BREAST-TRIALS-03"
+    }
+  ]
+}

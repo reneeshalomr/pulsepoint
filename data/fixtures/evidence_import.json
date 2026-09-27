@@ -1,0 +1,18 @@
+{
+  "id": "a79f4f45-9fb0-4f91-8195-258110138e1d",
+  "external_id": "SIMULATED:BREAST-SEQUENCING-01",
+  "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
+  "source_type": "Simulated (demo placeholder)",
+  "date": null,
+  "url": null,
+  "citation": "[SIMULATED] Placeholder only; no external citation.",
+  "publisher": "PULSEPOINT demo placeholder",
+  "specialty": "Oncology",
+  "condition": "Breast cancer",
+  "topics": [
+    "Treatment sequencing",
+    "Clinical trials"
+  ],
+  "verified": false,
+  "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial."
+}

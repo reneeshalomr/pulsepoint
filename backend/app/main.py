@@ -1,10 +1,15 @@
 from contextlib import asynccontextmanager
 import json
+import logging
 from pathlib import Path
+from time import perf_counter
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from sqlmodel import Session, SQLModel, select
 
 from app.config import settings
@@ -16,8 +21,11 @@ from app.routers.experts import router as experts_router
 from app.routers.huddles import router as huddles_router
 from app.routers.audio import AUDIO_DIR, router as audio_router
 from app.routers.analytics import router as analytics_router
+from app.routers.demo import router as demo_router
 from app.services.matching import ensure_demo_experts
-from scripts.seed import ensure_demo_signals
+from scripts.seed import ensure_corpus_sources, ensure_demo_signals
+
+logger = logging.getLogger("pulsepoint.api")
 
 
 @asynccontextmanager
@@ -26,6 +34,7 @@ async def lifespan(_: FastAPI):
     from sqlmodel import Session
     with Session(engine) as session:
         ensure_demo_experts(session)
+        ensure_corpus_sources(session)
         ensure_demo_signals(session)
     yield
 
@@ -44,7 +53,44 @@ app.include_router(experts_router)
 app.include_router(huddles_router)
 app.include_router(audio_router)
 app.include_router(analytics_router)
+app.include_router(demo_router)
 app.mount("/static/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
+
+
+@app.middleware("http")
+async def log_request_timing(request: Request, call_next):
+    started = perf_counter()
+    status_code = 500
+    try:
+        response = await call_next(request)
+        status_code = response.status_code
+        return response
+    finally:
+        elapsed_ms = (perf_counter() - started) * 1000
+        logger.info("request method=%s path=%s status=%d duration_ms=%.2f",
+                    request.method, request.url.path, status_code, elapsed_ms)
+
+
+@app.exception_handler(RequestValidationError)
+async def request_validation_error(_: Request, exc: RequestValidationError) -> JSONResponse:
+    # Validation errors can contain the original request value (including PHI).
+    logger.info("request validation failed error_count=%d", len(exc.errors()))
+    return JSONResponse(status_code=422,
+                        content={"detail": "Request validation failed", "code": "validation_error"})
+
+
+@app.exception_handler(StarletteHTTPException)
+async def http_error(_: Request, exc: StarletteHTTPException) -> JSONResponse:
+    return JSONResponse(status_code=exc.status_code,
+                        content={"detail": exc.detail, "code": f"http_{exc.status_code}"},
+                        headers=exc.headers)
+
+
+@app.exception_handler(Exception)
+async def unexpected_error(_: Request, exc: Exception) -> JSONResponse:
+    logger.error("unhandled API error", exc_info=(type(exc), exc, exc.__traceback__))
+    return JSONResponse(status_code=500,
+                        content={"detail": "Internal server error", "code": "internal_error"})
 
 
 @app.get("/api/health")

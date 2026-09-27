@@ -1,0 +1,18 @@
+{
+  "huddle_id": "17a686a6-e516-4470-86ac-dc26a5f5b5b2",
+  "status": "responded",
+  "response": {
+    "id": "5ea83b65-bd7d-469c-8599-6e0e9bfc05f7",
+    "mode": "text",
+    "transcript": null,
+    "duration_seconds": null,
+    "created_at": "2026-09-27T01:29:34.823996Z",
+    "text": "Synthetic fixture response from a fictional demo profile.",
+    "huddle_id": "17a686a6-e516-4470-86ac-dc26a5f5b5b2",
+    "expert_id": "demo-onc-001",
+    "audio_url": null,
+    "is_simulated": false
+  },
+  "expert_disclaimer": "Demo profile \u2014 fictional expert for prototype purposes.",
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes."
+}

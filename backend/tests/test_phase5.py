@@ -46,7 +46,7 @@ def test_create_huddle_validates_question_expert_and_evidence(client):
     missing_evidence = client.post("/api/huddles", json={
         "question_id": question["question_id"], "expert_id": "demo-onc-001", "evidence_ids": ["not-a-source"]})
     assert missing_evidence.status_code == 404
-    assert missing_evidence.json() == {"detail": "Evidence source not found"}
+    assert missing_evidence.json() == {"detail": "Evidence source not found", "code": "http_404"}
 
 
 def test_huddle_inbox_filters_by_expert_and_status(client):

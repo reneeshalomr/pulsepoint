@@ -1,0 +1,114 @@
+{
+  "huddle": {
+    "expert_id": "demo-onc-001",
+    "status": "awaiting_expert",
+    "created_at": "2026-09-27T01:29:34.799674Z",
+    "evidence_ids": [
+      "SIMULATED:BREAST-TRIALS-03",
+      "SIMULATED:BREAST-SEQUENCING-01",
+      "SIMULATED:BREAST-GUIDELINE-02"
+    ],
+    "id": "17a686a6-e516-4470-86ac-dc26a5f5b5b2",
+    "question_id": "27846610-e0cc-42ed-b86b-3998183ce1c3",
+    "brief": null,
+    "updated_at": "2026-09-27T01:29:34.799682Z"
+  },
+  "question": {
+    "question": "What has changed recently in treatment sequencing for breast cancer?",
+    "raw_text": "I have a patient with a complicated treatment history. What's changed recently in the relevant treatment landscape, and what evidence should I review?",
+    "intent": "Clinical update",
+    "phi_detected": false,
+    "condition": "Breast cancer",
+    "extraction_method": "demo_cache",
+    "id": "27846610-e0cc-42ed-b86b-3998183ce1c3",
+    "confidence": 1.0,
+    "topic": "Treatment sequencing",
+    "key_context": [
+      "Synthetic HR+/HER2- metastatic breast cancer",
+      "complicated treatment history"
+    ],
+    "created_at": "2026-09-27T01:29:34.750458Z",
+    "specialty": "Oncology"
+  },
+  "evidence": [
+    {
+      "external_id": "SIMULATED:BREAST-SEQUENCING-01",
+      "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
+      "source_type": "Simulated (demo placeholder)",
+      "date": null,
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Clinical trials"
+      ],
+      "verified": false,
+      "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial."
+    },
+    {
+      "external_id": "SIMULATED:BREAST-GUIDELINE-02",
+      "title": "[SIMULATED] Breast cancer guideline update search placeholder",
+      "source_type": "Simulated (demo placeholder)",
+      "date": null,
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Treatment sequencing",
+        "Guideline update",
+        "Monitoring"
+      ],
+      "verified": false,
+      "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, guideline update, monitoring, recently changed."
+    },
+    {
+      "external_id": "SIMULATED:BREAST-TRIALS-03",
+      "title": "[SIMULATED] Breast cancer clinical trials search placeholder",
+      "source_type": "Simulated (demo placeholder)",
+      "date": null,
+      "url": null,
+      "citation": "[SIMULATED] Placeholder only; no external citation.",
+      "publisher": "PULSEPOINT demo placeholder",
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topics": [
+        "Clinical trials",
+        "Treatment sequencing"
+      ],
+      "verified": false,
+      "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, clinical trial, enrolling, treatment sequencing."
+    }
+  ],
+  "expert": {
+    "id": "demo-onc-001",
+    "name": "Dr. Maya Patel",
+    "title": "Medical Oncologist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": [
+      "Breast cancer"
+    ],
+    "topics": [
+      "Treatment sequencing",
+      "Clinical trials",
+      "Guideline update"
+    ],
+    "expertise": [
+      "Breast cancer",
+      "Treatment sequencing",
+      "Clinical trials",
+      "HER2",
+      "CDK4/6"
+    ],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real clinician, practice history, or credential is represented.",
+    "is_demo": true
+  },
+  "responses": [],
+  "brief": null,
+  "disclaimer": "Demo profile \u2014 fictional expert for prototype purposes."
+}

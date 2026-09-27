@@ -160,3 +160,13 @@ def retrieve_for_question(session: Session, question_id: str, limit: int = 5) ->
     results = _cached_question_results(question.id, question.question, question.condition,
                                        question.topic, question.specialty, limit)
     return [dict(result) for result in results]
+
+
+def retrieve_for_question_with_method(session: Session, question_id: str,
+                                      limit: int = 5) -> tuple[list[dict], str]:
+    """Return the deterministic question results and the retrieval path used."""
+    question = session.get(HCPQuestion, question_id)
+    if question is None:
+        raise LookupError("Question not found")
+    return search_sources_with_method(session, question.question, condition=question.condition,
+                                      topic=question.topic, specialty=question.specialty, limit=limit)

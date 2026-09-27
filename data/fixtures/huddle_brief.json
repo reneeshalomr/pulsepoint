@@ -1,0 +1,70 @@
+{
+  "huddle_id": "17a686a6-e516-4470-86ac-dc26a5f5b5b2",
+  "status": "synthesized",
+  "brief": {
+    "question": "What has changed recently in treatment sequencing for breast cancer?",
+    "evidence": [
+      {
+        "statement": "\"[SIMULATED] This placeholder is not a publication and contains no clinical evidence.\" [SIMULATED:BREAST-TRIALS-03]",
+        "source_ids": [
+          "SIMULATED:BREAST-TRIALS-03"
+        ],
+        "label": "EVIDENCE"
+      },
+      {
+        "statement": "\"[SIMULATED] This placeholder is not a publication and contains no clinical evidence.\" [SIMULATED:BREAST-SEQUENCING-01]",
+        "source_ids": [
+          "SIMULATED:BREAST-SEQUENCING-01"
+        ],
+        "label": "EVIDENCE"
+      },
+      {
+        "statement": "\"[SIMULATED] This placeholder is not a publication and contains no clinical evidence.\" [SIMULATED:BREAST-GUIDELINE-02]",
+        "source_ids": [
+          "SIMULATED:BREAST-GUIDELINE-02"
+        ],
+        "label": "EVIDENCE"
+      }
+    ],
+    "expert_perspective": {
+      "summary": "Synthetic fixture response from a fictional demo profile.",
+      "expert_name": "Dr. Maya Patel",
+      "is_simulated": false,
+      "audio_url": null,
+      "label": "EXPERT OPINION"
+    },
+    "key_takeaways": [
+      {
+        "point": "No independent clinical conclusions are added in this brief.",
+        "source_ids": [],
+        "label": "AI SYNTHESIS"
+      }
+    ],
+    "uncertainty": [
+      "The curated corpus may be incomplete.",
+      "This brief reflects only the attached source text and expert response(s); it is not a comprehensive review."
+    ],
+    "sources": [
+      {
+        "id": "SIMULATED:BREAST-TRIALS-03",
+        "citation": "[SIMULATED] Placeholder only; no external citation.",
+        "url": null,
+        "verified": false
+      },
+      {
+        "id": "SIMULATED:BREAST-SEQUENCING-01",
+        "citation": "[SIMULATED] Placeholder only; no external citation.",
+        "url": null,
+        "verified": false
+      },
+      {
+        "id": "SIMULATED:BREAST-GUIDELINE-02",
+        "citation": "[SIMULATED] Placeholder only; no external citation.",
+        "url": null,
+        "verified": false
+      }
+    ],
+    "generated_by": "template",
+    "disclaimer": "Prototype decision-support summary. Not medical advice; does not replace clinical judgment. Expert profiles are fictional demo profiles."
+  }
+}

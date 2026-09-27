@@ -88,4 +88,4 @@ def test_post_rejects_empty_or_overlong_question(client, text):
 def test_get_missing_question_returns_specified_404(client):
     response = client.get("/api/questions/missing")
     assert response.status_code == 404
-    assert response.json() == {"detail": "Question not found"}
+    assert response.json() == {"detail": "Question not found", "code": "http_404"}
