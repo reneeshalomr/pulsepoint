@@ -1,4 +1,4 @@
-# PULSEPOINT
+# CLINIQ
 *"The clinical question you couldn't ask in 30 seconds."* — HackGT 13
 
 Hackathon prototype. Uses synthetic/de-identified demo data and fictional demo expert profiles. Not medical advice.
