@@ -23,7 +23,8 @@ import {
 } from "lucide-react";
 import { HuddleSchema, type Huddle, type View } from "@/types/huddle";
 import { initialHuddles } from "@/data/demo";
-import { huddleApi, isLive } from "@/lib/api";
+import { backendApi, huddleApi, isLive } from "@/lib/api";
+import { mapHuddleDetail } from "@/types/huddle";
 import { Brand, ErrorState, EvidenceList, FlowSteps, LoadingState } from "./ui";
 import { QuestionInput } from "./QuestionInput";
 import { ExpertResponse } from "./ExpertResponse";
@@ -43,7 +44,7 @@ const viewTitles: Record<View, string> = {
 export function Pulsepoint() {
   const [view, setView] = useState<View>("home");
   const [question, setQuestion] = useState("");
-  const [huddles, setHuddles] = useState<Huddle[]>(initialHuddles);
+  const [huddles, setHuddles] = useState<Huddle[]>(isLive ? [] : initialHuddles);
   const [current, setCurrent] = useState<Huddle | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -56,6 +57,11 @@ export function Pulsepoint() {
   const helpDialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
+    if (isLive) {
+      void backendApi.getHuddles().then((result) => setHuddles(result.huddles.map((item) => mapHuddleDetail(item)))).catch((e) => setError(e instanceof Error ? e.message : "Could not load huddles from the service."));
+      setHydrated(true);
+      return;
+    }
     try {
       const saved = sessionStorage.getItem(SESSION_KEY);
       if (saved) {
@@ -138,12 +144,23 @@ export function Pulsepoint() {
       setBusy(false);
     }
   }
-  async function respond(text: string) {
+  async function simulateResponse() {
     if (!current) return;
     setBusy(true);
     setError("");
     try {
-      save(await huddleApi.respond(current, text));
+      save(await huddleApi.simulate(current));
+      setView("brief");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "The simulated response could not be completed.");
+    } finally { setBusy(false); }
+  }
+  async function respond(text: string, mode: "text" | "voice" = "text") {
+    if (!current) return;
+    setBusy(true);
+    setError("");
+    try {
+      save(await huddleApi.respond(current, text, mode));
       setView("brief");
     } catch (e) {
       setError(
@@ -651,14 +668,14 @@ export function Pulsepoint() {
                               <LoadingState label="Preparing request" />
                             ) : (
                               <>
-                                Request huddle <ArrowRight size={16} />
+                                Continue to huddle <ArrowRight size={16} />
                               </>
                             )}
                           </button>
                           <p className="small muted centered">
-                            {current.demo
-                              ? "Opens the demo expert workspace"
-                              : "Sends to your connected service"}
+                            {current.expert.demo
+                              ? "Opens the synthetic expert workspace; no real clinician is contacted."
+                              : "Opens the matched expert workspace."}
                           </p>
                         </>
                       ) : (
@@ -679,7 +696,8 @@ export function Pulsepoint() {
                     key={current.id}
                     huddle={current}
                     busy={busy}
-                    onSubmit={(text) => void respond(text)}
+                    onSubmit={(text, mode) => void respond(text, mode)}
+                    onSimulate={() => void simulateResponse()}
                   />
                 )}
               {view === "expert" &&
@@ -768,7 +786,7 @@ export function Pulsepoint() {
         <button
           className="button secondary"
           onClick={() => {
-            setHuddles(initialHuddles);
+            setHuddles(isLive ? [] : initialHuddles);
             setCurrent(null);
             setQuestion("");
             setView("home");

@@ -59,21 +59,14 @@ export function EvidenceList({ sources }: { sources: Evidence[] }) {
               </span>
             </div>
             <h3>
-              <a
-                href={/^https?:\/\//.test(source.url) ? source.url : undefined}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {source.title}
-                <ArrowUpRight size={17} />
-              </a>
+              {source.url && /^https?:\/\//.test(source.url) ? <a href={source.url} target="_blank" rel="noreferrer">{source.title}<ArrowUpRight size={17} /></a> : <span>{source.title}</span>}
             </h3>
             <p>{source.snippet}</p>
             <div className="source-meta">
               <FileText size={13} />
               {source.publisher}
               <span>·</span>
-              {source.date}
+              {source.date || "Date not provided"}
             </div>
           </div>
         </article>

@@ -4,25 +4,41 @@ import httpx
 import pytest
 from sqlmodel import Session, select
 
-from app.models import EvidenceSource
+from app.models import EvidenceChunk, EvidenceSource
 from app.services import retrieval
-from scripts import fetch_corpus
+from scripts import fetch_corpus, seed
 
 
-def test_checked_in_fallback_corpus_is_labeled_and_has_required_metadata():
+def test_checked_in_corpus_has_source_provenance_or_labeled_offline_fallback():
     records = json.loads(retrieval.CORPUS_PATH.read_text(encoding="utf-8"))
-    assert len(records) <= 6
     assert records
     required = {"external_id", "title", "source_type", "date", "url", "citation", "publisher",
                 "specialty", "condition", "topics", "verified", "full_text"}
+    identities = set()
+    real_records = []
     for record in records:
         assert required <= record.keys()
+        assert record["external_id"] not in identities
+        identities.add(record["external_id"])
         if record["source_type"].startswith("Simulated"):
             assert record["verified"] is False
             assert record["url"] is None
             assert record["title"].startswith("[SIMULATED]")
         if record["verified"]:
-            assert record["url"]
+            assert record["external_id"]
+            assert record["title"] and record["citation"] and record["publisher"]
+            assert record["full_text"]
+            if record["source_type"] == "PubMed abstract":
+                assert record["external_id"].startswith("PMID:")
+                assert record["url"] == f"https://pubmed.ncbi.nlm.nih.gov/{record['external_id'].removeprefix('PMID:')}/"
+            elif record["source_type"] == "Clinical trial registry":
+                assert record["external_id"].startswith("NCT")
+                assert record["url"] == f"https://clinicaltrials.gov/study/{record['external_id']}"
+            else:
+                pytest.fail(f"Unrecognized verified source type: {record['source_type']}")
+            real_records.append(record)
+    if real_records:
+        assert not any(record["source_type"].startswith("Simulated") for record in records)
 
 
 def test_tokenizer_preserves_clinical_tokens():
@@ -40,18 +56,23 @@ def test_chunk_windows_overlap_by_one_sentence():
     assert any(sentence in chunks[0] and sentence in chunks[1] for sentence in sentences)
 
 
-def test_search_returns_fallback_records_with_verbatim_snippets():
+def test_search_returns_source_backed_records_with_verbatim_snippets():
     results = retrieval.search_sources(None, "new treatment sequencing evidence",
                                        condition="Breast cancer", topic="Treatment sequencing",
                                        specialty="Oncology", limit=5)
-    assert len(results) >= 3
+    assert results
     assert all(item["condition"] == "Breast cancer" for item in results)
     corpus_by_id = {item["external_id"]: item for item in retrieval.load_corpus()}
     for item in results:
         source = corpus_by_id[item["id"]]
         assert item["snippet"] in source["full_text"]
-        assert item["verified"] is False
-        assert item["url"] is None
+        if item["verified"]:
+            assert item["url"]
+            assert item["external_id"] == item["id"]
+        else:
+            assert source["source_type"].startswith("Simulated")
+            assert source["title"].startswith("[SIMULATED]")
+            assert item["url"] is None
 
 
 def test_bm25_ties_break_by_external_id(monkeypatch):
@@ -79,17 +100,51 @@ def test_evidence_search_endpoint_defaults_to_five_and_enforces_maximum(client):
 
 
 def test_post_evidence_imports_only_corpus_backed_metadata(client, test_engine):
-    source_id = retrieval.load_corpus()[0]["external_id"]
+    source = retrieval.load_corpus()[0]
+    source_id = source["external_id"]
     response = client.post("/api/evidence", json={"external_id": source_id})
     assert response.status_code == 201
     result = response.json()
     assert result["external_id"] == source_id
-    assert result["verified"] is False
-    assert result["url"] is None
+    assert result["verified"] is source["verified"]
+    assert result["url"] == source["url"]
+    assert result["citation"] == source["citation"]
     with Session(test_engine) as session:
         stored = session.exec(select(EvidenceSource).where(EvidenceSource.external_id == source_id)).one()
-        assert stored.title.startswith("[SIMULATED]")
+        assert stored.title == source["title"]
     assert client.post("/api/evidence", json={"external_id": "PMID:invented"}).status_code == 404
+
+
+def test_reseeding_removes_only_replaced_simulated_source_and_its_chunks(test_engine, monkeypatch):
+    records = [dict(retrieval.load_corpus()[0])]
+    monkeypatch.setattr(seed, "load_corpus", lambda: records)
+    with Session(test_engine) as session:
+        stale = EvidenceSource(
+            external_id="SIMULATED:REPLACED", title="[SIMULATED] Old placeholder",
+            source_type="Simulated (demo placeholder)", date=None, url=None,
+            citation="[SIMULATED] Placeholder", publisher="PULSEPOINT demo placeholder",
+            specialty="Oncology", condition="Breast cancer", topics=["Treatment sequencing"],
+            verified=False, full_text="Not evidence.",
+        )
+        legitimate = EvidenceSource(
+            external_id="IMPORTED:KEEP", title="Legitimate imported source",
+            source_type="Imported source", citation="Existing citation", publisher="Existing publisher",
+            specialty="Oncology", condition="Breast cancer", topics=[], verified=False,
+            full_text="Existing source text.",
+        )
+        session.add(stale)
+        session.add(legitimate)
+        session.commit()
+        session.add(EvidenceChunk(source_id=stale.id, chunk_index=0, text="Not evidence."))
+        session.commit()
+
+        seed.ensure_corpus_sources(session)
+
+        remaining_ids = set(session.exec(select(EvidenceSource.external_id)).all())
+        assert "SIMULATED:REPLACED" not in remaining_ids
+        assert "IMPORTED:KEEP" in remaining_ids
+        assert records[0]["external_id"] in remaining_ids
+        assert session.exec(select(EvidenceChunk).where(EvidenceChunk.source_id == stale.id)).all() == []
 
 
 def test_corpus_fetcher_retries_transient_errors(monkeypatch):

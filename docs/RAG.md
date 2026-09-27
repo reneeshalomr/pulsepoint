@@ -25,7 +25,7 @@ python -m scripts.seed
 - deduplicates by PMID/NCT identity and tags a record with the specialty, condition, and topic that found it;
 - caps output at 50 PubMed and 50 trial records.
 
-If the public APIs are unreachable or return no usable records, the script preserves a valid existing committed corpus. It does not create realistic-looking fake results. Inspect the resulting diff and verify source links/metadata before committing corpus changes. Then run `python -m scripts.seed` to load new source rows and verbatim text chunks into the local database. Runtime retrieval also reads the committed file directly.
+If the public APIs are unreachable or return no usable records, the script preserves a valid existing committed corpus. It does not create realistic-looking fake results. Inspect the resulting diff and verify source links/metadata before committing corpus changes. Then run `python -m scripts.seed` (or restart the app, whose startup seeds the corpus) to load new source rows and verbatim text chunks into the local database. When a refreshed corpus contains verified PubMed or ClinicalTrials.gov records, seeding removes only obsolete `[SIMULATED]` placeholder rows and their chunks; unrelated/imported source rows are preserved. Restart the app after refreshing so the process-local corpus/retrieval caches are cleared. Runtime retrieval also reads the committed file directly.
 
 ## Chunking and ranking
 

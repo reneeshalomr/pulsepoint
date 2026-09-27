@@ -10,3 +10,8 @@ node_modules/
 backend/static/audio/*
 !backend/static/audio/.gitkeep
 .DS_Store
+
+# Local development artifacts
+.tmp/
+frontend/.env.local
+frontend/tsconfig.tsbuildinfo

@@ -1,72 +1,803 @@
 [
   {
-    "external_id": "SIMULATED:BREAST-SEQUENCING-01",
-    "title": "[SIMULATED] Breast cancer treatment sequencing search placeholder",
-    "source_type": "Simulated (demo placeholder)",
-    "date": null,
-    "url": null,
-    "citation": "[SIMULATED] Placeholder only; no external citation.",
-    "publisher": "PULSEPOINT demo placeholder",
+    "external_id": "NCT00149214",
+    "title": "Preoperative Treatment of Breast Cancer With Two Different Sequential Treatment Regimens",
+    "source_type": "Clinical trial registry",
+    "date": "2005-09-02",
+    "url": "https://clinicaltrials.gov/study/NCT00149214",
+    "citation": "ClinicalTrials.gov. NCT00149214",
+    "publisher": "ClinicalTrials.gov",
     "specialty": "Oncology",
     "condition": "Breast cancer",
-    "topics": ["Treatment sequencing", "Clinical trials"],
-    "verified": false,
-    "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, treatment sequencing, next line, after progression, clinical trial."
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "An open-label randomized Phase II study in order to explore two different sequential anthracycline-based neoadjuvant treatment regimens in female patients with primary, operable breast cancer (T2-T4/N0-2/M0)."
   },
   {
-    "external_id": "SIMULATED:BREAST-GUIDELINE-02",
-    "title": "[SIMULATED] Breast cancer guideline update search placeholder",
-    "source_type": "Simulated (demo placeholder)",
-    "date": null,
-    "url": null,
-    "citation": "[SIMULATED] Placeholder only; no external citation.",
-    "publisher": "PULSEPOINT demo placeholder",
+    "external_id": "NCT02539615",
+    "title": "A Trial of the ForeCYTE Breast Aspirator for Cytological Testing of Nipple Aspirate Fluid in Women 30-55 Years Old",
+    "source_type": "Clinical trial registry",
+    "date": "2015-09-01",
+    "url": "https://clinicaltrials.gov/study/NCT02539615",
+    "citation": "ClinicalTrials.gov. NCT02539615",
+    "publisher": "ClinicalTrials.gov",
     "specialty": "Oncology",
     "condition": "Breast cancer",
-    "topics": ["Treatment sequencing", "Guideline update", "Monitoring"],
-    "verified": false,
-    "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, guideline update, monitoring, recently changed."
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "The purpose of this study is to measure the performance of the ForeCYTE Breast Aspirator for the collection and processing of Nipple Aspirate Fluid (NAF) specimens for cytology. Including collecting, processing and shipping samples, training staff, processing samples, sample interpretation and accurate and timely reporting in a manner resembling routine clinical use. The study will include a subset of patients who are known carriers of a BRCA germline mutation. NAF from this subset will be submitted for molecular testing in addition to cytology."
   },
   {
-    "external_id": "SIMULATED:BREAST-TRIALS-03",
-    "title": "[SIMULATED] Breast cancer clinical trials search placeholder",
-    "source_type": "Simulated (demo placeholder)",
-    "date": null,
-    "url": null,
-    "citation": "[SIMULATED] Placeholder only; no external citation.",
-    "publisher": "PULSEPOINT demo placeholder",
+    "external_id": "NCT01093235",
+    "title": "Combination Chemotherapy With or Without Bevacizumab in Treating Patients With Nonmetastatic Breast Cancer",
+    "source_type": "Clinical trial registry",
+    "date": "2010-03-24",
+    "url": "https://clinicaltrials.gov/study/NCT01093235",
+    "citation": "ClinicalTrials.gov. NCT01093235",
+    "publisher": "ClinicalTrials.gov",
     "specialty": "Oncology",
     "condition": "Breast cancer",
-    "topics": ["Clinical trials", "Treatment sequencing"],
-    "verified": false,
-    "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: breast cancer, clinical trial, enrolling, treatment sequencing."
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "RATIONALE: Drugs used in chemotherapy, such as docetaxel, fluorouracil, epirubicin hydrochloride, and cyclophosphamide, work in different ways to stop the growth of tumor cells, either by killing the cells or by stopping them from dividing. Giving more than one drug (combination chemotherapy) may kill more tumor cells. Monoclonal antibodies, such as bevacizumab, can block tumor growth in different ways. Some block the ability of tumor cells to grow and spread. Others find tumor cells and help kill them or carry tumor-killing substances to them. It is not yet known whether giving combination chemotherapy together with or without bevacizumab is more effective in treating patients with nonmetastatic breast cancer.\n\nPURPOSE: This randomized phase III trial is studying how well giving combination chemotherapy works compared with giving combination chemotherapy together with bevacizumab in treating patients with nonmetastatic breast cancer."
   },
   {
-    "external_id": "SIMULATED:HEART-FAILURE-01",
-    "title": "[SIMULATED] Heart failure monitoring search placeholder",
-    "source_type": "Simulated (demo placeholder)",
-    "date": null,
-    "url": null,
-    "citation": "[SIMULATED] Placeholder only; no external citation.",
-    "publisher": "PULSEPOINT demo placeholder",
+    "external_id": "NCT04274504",
+    "title": "Osteopontin in Metastatic Breast Cancer Patients",
+    "source_type": "Clinical trial registry",
+    "date": "2020-02-14",
+    "url": "https://clinicaltrials.gov/study/NCT04274504",
+    "citation": "ClinicalTrials.gov. NCT04274504",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "OPN plays an important role in various aspects of malignancy, particularly those involved in tissue invasion and metastasis, and OPN levels have been associated with aggressive¬ness in several cancer types, including breast cancer. Tumor response to treatment is a predictor of prognosis and overall survival for cancer patient population the investigators assigned osteopontin as potential contributors in breast cancer."
+  },
+  {
+    "external_id": "NCT06595563",
+    "title": "HER2 Molecular Imaging With 89Zr-trastuzumab PET/CT as a Predictive Biomarker for Antibody-drug Conjugate Sequencing in Patients With Advanced HER2-positive Breast Cancer",
+    "source_type": "Clinical trial registry",
+    "date": "2024-09-04",
+    "url": "https://clinicaltrials.gov/study/NCT06595563",
+    "citation": "ClinicalTrials.gov. NCT06595563",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "ZEPHIR-02 is a multicentre, open-label phase II study that will enroll subjects with HER2-positive advanced/metastatic breast cancer (mBC) who have experienced disease progression under trastuzumab deruxtecan (T-DXd) in the metastatic setting.\n\nAll subjects will undergo baseline biopsy, blood collection, FDG-PET/CT and 89Zr-trastuzumab PET/CT (HER2-PET/CT) and will be classified as HER2-PET/CT positive or negative, as previously described in the ZEPHIR trial. Focusing on a central visual \"patient-based\" classification that captures the entire disease burden, a side-by-side display will be used, comparing baseline FDG-PET/CT (which identifies all FDG-positive metastases regardless of their HER2-imaging status) and HER2-PET/CT. Subjects will be categorized into two HER2-PET/CT patterns (positive vs. negative) based on proportion of FDG-avid tumor load with significant 89Zr-trastuzumab uptake.\n\nSubjects classified as \"positive\" will receive T-DM1 as monotherapy, IV 3.6mg/kg every 3 weeks (21 days +- 3 days) until disease progression, unacceptable toxicity or request of the subject to withdraw from the study. FDG-PET/CT will be performed before cycle 2 of T-DM1 will serve as a research tool to correlate metabolic changes with clinical outcomes. Other FDG-PET/CT will be performed before cycle 4 of T-DM1 for assessment of response. Subjects who demonstrate a partial or complete response (responders) will continue treatment with T-DM1. Subjects who exhibit stable disease or disease progression (non-responders) will discontinue study treatment and enter the survival follow-up period. For responders, subsequent metabolic evaluations will be performed every 3 months, with FDG-PET/CT. Treatment response will be assessed according to metabolic response. For these subjects, mandatory blood samples will be obtained at all metabolic reassessments. Subjects with HER2-PET/CT classified as \"negative\" will receive treatment of physician's choice (TPC) as per the best local clinical practice and be out of the study.\n\nAll enrolled subjects will undergo a mandatory biopsy during the pre-treatment period.\n\nThe study also includes mandatory translational procedures (i.e. collection of tumour biopsy during pre-treatment period and blood samples at pre-specified time points) for exploratory molecular analyses."
+  },
+  {
+    "external_id": "NCT03804255",
+    "title": "Assessment of Current Biomarker Testing Practices for Common Solid Cancers in Precision Oncology in the Community Setting",
+    "source_type": "Clinical trial registry",
+    "date": "2019-01-07",
+    "url": "https://clinicaltrials.gov/study/NCT03804255",
+    "citation": "ClinicalTrials.gov. NCT03804255",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "treatment sequencing",
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "This trial assesses current biomarker testing practices for common solid cancers in precision oncology in the community setting. Cancer biomarkers are used for diagnosing the disease, determining prognosis, predicting response to a targeted therapy, or monitoring response to therapy. Testing quality, including accuracy and timeliness, is imperative for correct disease prognosis and identification of patients who may or may not benefit from a targeted therapy. Assessing current biomarker testing practices may help doctors identify gaps and variations in testing as well as on potential ?best practices? that may be informative and generalizable to community oncology programs."
+  },
+  {
+    "external_id": "NCT02669914",
+    "title": "MEDI4736 (Durvalumab) in Patients With Brain Metastasis From Epithelial-derived Tumors",
+    "source_type": "Clinical trial registry",
+    "date": "2016-01-22",
+    "url": "https://clinicaltrials.gov/study/NCT02669914",
+    "citation": "ClinicalTrials.gov. NCT02669914",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Brain metastases are the most common intracranial malignancy occurring in 20-40% of all cancers, and the presence of CNS metastases is associated with a poor prognosis. As such, the median overall survival of patients with symptomatic brain lesions is a dismal 2-3 months regardless of tumor type. Because standard chemotherapy largely does not cross the blood brain barrier at a meaningful concentration, standard treatment is limited and usually involves surgical resection and/or stereotactic radiosurgery for isolated lesions and whole brain radiation for multiple lesions. Unfortunately, the median overall survival is only improved by about 6 months with this multimodality approach2, and there is a paucity of second-line therapies to treat recurrence. Furthermore, re-resection and re-radiation are often not feasible options due to concern for increasing complications or neurotoxicity, respectively. Thus, there is a dire clinical need for additional treatment options for this patient population.\n\nCheckpoint blockade therapy, in particular PD-1 and PD-L1 inhibition, has recently shown clinical efficacy in multiple types of solid tumors. The investigators propose to study the efficacy of checkpoint blockade therapy in patients with solid tumors and refractory/recurrent brain metastases. The investigators will assess the efficacy of MEDI4736, a novel PD-L1 inhibitory monoclonal antibody, in this study."
+  },
+  {
+    "external_id": "NCT04638751",
+    "title": "ARGONAUT: Stool and Blood Sample Bank for Cancer Patients",
+    "source_type": "Clinical trial registry",
+    "date": "2020-11-16",
+    "url": "https://clinicaltrials.gov/study/NCT04638751",
+    "citation": "ClinicalTrials.gov. NCT04638751",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "ARGONAUT is a longitudinal, prospective, observational study that will enroll up to 5,000 advanced-stage cancer patients of diverse racial backgrounds to collect data used to develop precision microbiome medicines and for the identification of clinically actionable cancer-specific biomarkers to guide therapeutic decisions. Four types of solid tumor cancers will be profiled including non-small cell lung cancer (NSCLC), triple negative breast cancer (TNBC), colorectal cancer (CRC) and pancreatic cancer. Healthy control subjects without a cancer diagnosis will also be studied, comprised of individuals at high risk for CRC and healthy individuals at low risk for CRC. Risk assessment will be based on family history or past neoplastic findings during CRC screening. Data collected from this study will be used to develop the most effective new therapies, via microbiome optimization, all to the benefit of patients and the physicians treating them. Stool and blood samples will be collected longitudinally and analyzed to determine the impact of gut microbiome composition and function on the immune system and efficacy of the treatment.\n\nCurrently enrolling the CRC, high risk, and low risk cohorts.\n\nSubjects who meet the entry criteria will provide up to 5 samples each of blood and stool over a 2-year period. Approximately 10%-20% of the subjects will provide colon tissue samples, either from research biopsies during Standard of Care (SOC) screening colonoscopy or retained surgical tissue from colectomy. Electronic health records will be obtained at various times for up to 8 years, to collect tumor imaging results and any other updated medical data, with no additional samples collected. In select cases, stool and blood samples will be collected beyond 2 years."
+  },
+  {
+    "external_id": "NCT00536081",
+    "title": "Various G-CSF Regimens to Prevent Infection During Chemotherapy",
+    "source_type": "Clinical trial registry",
+    "date": "2007-09-25",
+    "url": "https://clinicaltrials.gov/study/NCT00536081",
+    "citation": "ClinicalTrials.gov. NCT00536081",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "The purpose of this study is to prevent chemotherapy-related febrile neutropenia, prophylaxis with antibiotics and granulocyte colony-stimulating factor (G-CSF) have proven efficacious \\[1-3\\]. G-CSF has only few side effects, but is expensive. In 2006, updated G-CSF guidelines conclude that primary G-CSF prophylaxis has clinical benefits for and should be offered to patients at a more than 20% risk of febrile neutropenia.\n\nBased on many positive and few negative trials, one can consider the use of taxanes as standard of care in the adjuvant setting in node-positive breast cancer. Taxanes (with or without anthracyclines) have an increased risk for febrile neutropenia.\n\nThe updated guidelines and changes in daily clinical practice will have a significant impact on the investigators health care resources. There is a higher risk of febrile neutropenia for the first chemotherapy cycle compared to subsequent cycles in small cell lung cancer patients. Also in advanced breast cancer the majority of first observed episodes of febrile neutropenia occur in the initial chemotherapy cycles Irrespective of tumour type or chemotherapy regimen, the risk of febrile neutropenia is highest during the first two cycles of chemotherapy. Thereafter, the risk rapidly declines, and the benefit of G-CSF largely seems to disappear.\n\nSo, in order to improve the cost-effective administration of primary G-CSF prophylaxis, it is justified to assess whether G-CSF prophylaxis can be limited to the first two chemotherapy cycles as compared to the current practice of continuous G-CSF prophylaxis."
+  },
+  {
+    "external_id": "NCT00845910",
+    "title": "A Study of Circulating Endothelial Cell as Marker for Avastin (Bevacizumab) in Combination With Docetaxel Plus Xeloda (Capecitabine) as First Line Treatment for Patients With Locally Recurrent and Metastatic Breast Cancer",
+    "source_type": "Clinical trial registry",
+    "date": "2009-02-17",
+    "url": "https://clinicaltrials.gov/study/NCT00845910",
+    "citation": "ClinicalTrials.gov. NCT00845910",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "This single arm study will evaluate the correlation between circulating endothelial cell levels and treatment efficacy in patients with locally recurrent and metastatic breast cancer given first line treatment with Avastin in combination with docetaxel + Xeloda.Patients will be treated with docetaxel 60mg/m2 iv on day 1, and Xeloda 900mg/m2 po on days 1-14, of each 3 week cycle, plus Avastin 7.5 mg/kg iv on day 1 of each 3 week cycle. The anticipated time on study treatment is until disease progression, and the target sample size is \\<100 individuals."
+  },
+  {
+    "external_id": "NCT04173897",
+    "title": "Living Better With Advanced Breast Cancer: Feasibility Evaluation of an Online Supportive Intervention.",
+    "source_type": "Clinical trial registry",
+    "date": "2019-10-30",
+    "url": "https://clinicaltrials.gov/study/NCT04173897",
+    "citation": "ClinicalTrials.gov. NCT04173897",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Breast cancer",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "The LIBERATE intervention is a multi-component self-management, symptom monitoring and signposting website tailored to the supportive needs of women living with secondary breast cancer. Overall, this intervention aims to improve quality of life among this growing group of patients through targeted, tailored and accessible information and support.\n\nThis randomised waiting list control trial aims to evaluate the feasibility of the clinically integrated LIBERATE intervention. Results of participants' online symptom monitoring questionnaires are integrated with their electronic patient record, enabling clinician review and follow up alongside participants' own self-management activities."
+  },
+  {
+    "external_id": "NCT00690963",
+    "title": "Individual Boosting in Non-Small Cell Lung Cancer Using Hypofractionation, Intensity-modulated Radiation Therapy and Respiratory Gating",
+    "source_type": "Clinical trial registry",
+    "date": "2008-06-03",
+    "url": "https://clinicaltrials.gov/study/NCT00690963",
+    "citation": "ClinicalTrials.gov. NCT00690963",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "Patients who have inoperable non-small cell lung cancer are presently treated with chemotherapy and radiation therapy. Despite this combined approach, the vast majority of patients will have their cancer recur after treatment. A recurrence is not curable at this time. Because of the sensitivity of surrounding structures to chest irradiation, it has not been possible to give radiation doses that can cure many of these tumors. Intensity-modulated radiation therapy is a special form of radiotherapy delivery that allows doctors to reduce the amount of radiation dose to normal tissues and therefore reduce side effects. The reduction of radiation side effects may allow more radiation to be delivered to tumors, therefore improving tumor control and possibly longevity of patients. The purpose of this study is to determine whether the combination of custom designed intensity-modulated radiotherapy (based on individual tumor anatomy) with regular chemotherapy, will be safe enough to allow further intensification of radiation treatment."
+  },
+  {
+    "external_id": "NCT00738452",
+    "title": "Radiolabeled Monoclonal Antibody Therapy in Treating Patients With Stage I-IIIB Non-Small Cell Lung Cancer After Completion of Radiation Therapy Alone or Combined Radiation Therapy and Chemotherapy",
+    "source_type": "Clinical trial registry",
+    "date": "2008-08-19",
+    "url": "https://clinicaltrials.gov/study/NCT00738452",
+    "citation": "ClinicalTrials.gov. NCT00738452",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "RATIONALE: Radiation therapy uses high energy x-rays to kill tumor cells. Drugs used in chemotherapy, such as carboplatin, paclitaxel, cisplatin, and etoposide, work in different ways to stop the growth of tumor cells, either by killing the cells or by stopping them from dividing. Radiolabeled monoclonal antibodies can find tumor cells and carry tumor-killing substances to them without harming normal cells. Giving radiation therapy and combination chemotherapy together before radiolabeled monoclonal antibody therapy may kill more tumor cells.\n\nPURPOSE: This phase I trial is studying the side effects and best dose of radiolabeled monoclonal antibody therapy when given after radiation therapy and combination chemotherapy in treating patients with stages I-IIIB non-small cell lung cancer."
+  },
+  {
+    "external_id": "NCT01018147",
+    "title": "4D Image-guided Adaptive Radiotherapy for Lung Cancer: Patient Image Acquisition",
+    "source_type": "Clinical trial registry",
+    "date": "2009-11-20",
+    "url": "https://clinicaltrials.gov/study/NCT01018147",
+    "citation": "ClinicalTrials.gov. NCT01018147",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "This clinical trial studies 4-dimensional (4-D) image-guided radiation therapy treatment planning in patients with stage I-IV non-small cell lung cancer. Computed tomography (CT) scans and treatment-planning systems may help in planning radiation therapy for patients with non-small cell lung cancer. This is not a therapy study. Therefore no direct benefit from participating is expected. However, at the discretion of the treating physician, the information gained from the additional imaging will be used to improve treatment accuracy. No patient outcome data are gathered or analyzed by this study. This study is not a:Phase I, II, or III trial, trial with \"blinded\" treatment arm, gene or a vaccine trial, or a multi-institutional trial."
+  },
+  {
+    "external_id": "NCT06563999",
+    "title": "Neoadjuvant Umbrella Trial for Patients With Unresectable Stage III NSCLC Harboring Rare Mutations.",
+    "source_type": "Clinical trial registry",
+    "date": "2024-08-19",
+    "url": "https://clinicaltrials.gov/study/NCT06563999",
+    "citation": "ClinicalTrials.gov. NCT06563999",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "This umbrella trial directed by next generation sequencing (NGS) includes patients with treatment-naive unresectable stage III non-small-cell lung cancer (NSCLC). The aim of the umbrella study is to evaluate the efficacy of induction NGS-directed targeted therapies followed by surgery for stage III NSCLC patients whose tumor harbors a rare mutation."
+  },
+  {
+    "external_id": "NCT00977509",
+    "title": "Gene Mutations in Non-Small Cell Lung Cancer Cells",
+    "source_type": "Clinical trial registry",
+    "date": "2009-09-10",
+    "url": "https://clinicaltrials.gov/study/NCT00977509",
+    "citation": "ClinicalTrials.gov. NCT00977509",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "To compare the frequency of individual genetic abnormality between tumor cells and blood specimens."
+  },
+  {
+    "external_id": "NCT02944903",
+    "title": "Audit of Lung Cancer Screening Practice in Chest Physicians: An Update",
+    "source_type": "Clinical trial registry",
+    "date": "2016-10-23",
+    "url": "https://clinicaltrials.gov/study/NCT02944903",
+    "citation": "ClinicalTrials.gov. NCT02944903",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "The investigators will conduct nationally representative survey in chest physicians in Egypt in 2016-2017. Self-administered questionnaire will be used to assess the physicians' knowledge of lung cancer screening guidelines, beliefs about the effectiveness of screening tests, and ordering of screening chest radiography, low-dose spiral computed tomography, or sputum cytology in the past 12 months."
+  },
+  {
+    "external_id": "NCT06743555",
+    "title": "Surgery After Verifying Existing Disease in Locally Advanced Operable Lung Cancer: A Pilot Study",
+    "source_type": "Clinical trial registry",
+    "date": "2024-12-17",
+    "url": "https://clinicaltrials.gov/study/NCT06743555",
+    "citation": "ClinicalTrials.gov. NCT06743555",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "The SAVED LUNG study is a pilot Phase I trial evaluating safety and feasibility of observation versus standard-of-care surgery in operable Stage II-III (excluding N3) NSCLC patients (PD-L1 ≥50%) who achieve complete clinical response following neoadjuvant platinum-doublet chemotherapy and immunotherapy. Participants are randomized to observation or surgery after rigorous restaging, with primary endpoints focusing on safety and feasibility. Secondary objectives include rates of cross-over to surgery, event-free survival, and overall survival, while exploratory endpoints examine ctDNA clearance and its association with clinical response."
+  },
+  {
+    "external_id": "NCT04477655",
+    "title": "Prone Positioning in Non-intubated Patients With COVID-19 Associated Acute Respiratory Failure",
+    "source_type": "Clinical trial registry",
+    "date": "2020-07-15",
+    "url": "https://clinicaltrials.gov/study/NCT04477655",
+    "citation": "ClinicalTrials.gov. NCT04477655",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Oncology",
+    "condition": "Lung cancer",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "Besides protective ventilation with low tidal volumes, prone positioning is a proven intervention to decrease mortality in mechanically ventilated patients with moderate-severe acute respiratory distress syndrome. However, the evidence of this strategy in awake non-intubated patients is scarce. The investigators will perform a randomized controlled trial to define if prone positioning can reduce the requirement of mechanical ventilation."
+  },
+  {
+    "external_id": "NCT00054678",
+    "title": "MYOHEART™ (Myogenesis Heart Efficiency and Regeneration Trial)",
+    "source_type": "Clinical trial registry",
+    "date": "2003-02-06",
+    "url": "https://clinicaltrials.gov/study/NCT00054678",
+    "citation": "ClinicalTrials.gov. NCT00054678",
+    "publisher": "ClinicalTrials.gov",
     "specialty": "Cardiology",
     "condition": "Heart failure",
-    "topics": ["Monitoring", "Guideline update"],
-    "verified": false,
-    "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: heart failure, HFrEF, ejection fraction, SGLT2, monitoring."
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "The MyoCell™ implantation using the MyoCath™ delivery catheter system may have the potential to add a new dimension to the management of post-infarct deterioration of cardiac function in subjects with congestive heart failure. Based on pre-clinical studies, implantation of autologous skeletal myoblasts may lead to replacement of non-functioning myocardial scar with functioning muscle and improvement in myocardial performance. Preliminary data in human subjects suggest skeletal myoblast implantation at the time of CABG may lead to the same effects. In principal, myoblast implantation by catheter delivery may offer the same therapeutic benefit. The present clinical study is to be conducted primarily to evaluate the safety of MyoCell™ implantation using the MyoCath™ delivery system and secondarily to evaluate the effect on regional myocardial function post treatment."
   },
   {
-    "external_id": "SIMULATED:DIABETES-01",
-    "title": "[SIMULATED] Type 2 diabetes evidence search placeholder",
-    "source_type": "Simulated (demo placeholder)",
-    "date": null,
-    "url": null,
-    "citation": "[SIMULATED] Placeholder only; no external citation.",
-    "publisher": "PULSEPOINT demo placeholder",
+    "external_id": "NCT04739215",
+    "title": "Effects of SGLT2 Inhibition on the Mechanisms of Cardiac Damage in the Diabetic Patient With HFpEF",
+    "source_type": "Clinical trial registry",
+    "date": "2021-01-15",
+    "url": "https://clinicaltrials.gov/study/NCT04739215",
+    "citation": "ClinicalTrials.gov. NCT04739215",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "The main aim of this study is to identify the underlying mechanisms of Sodium-glucose co-transporter-2 (SGLT2) inhibitors which are associated to better outcomes in patients with Diabetes mellitus type 2 and Heart Failure with preserved Ejection Fraction."
+  },
+  {
+    "external_id": "NCT06526533",
+    "title": "RECOMMEND Platform Trial",
+    "source_type": "Clinical trial registry",
+    "date": "2024-07-25",
+    "url": "https://clinicaltrials.gov/study/NCT06526533",
+    "citation": "ClinicalTrials.gov. NCT06526533",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "The goal of this platform trial is to determine the efficacy, safety and cost-effectiveness of various interventions in patients with acute cardiorespiratory failure requiring extracorporeal membrane oxygenation (ECMO)\n\nThe main question the platform trial aims to address is to determine the effect of a range of interventions on survival, organ support and resource utilisation to day 28 for hospitalised patients receiving ECMO.\n\nResearchers will compare various interventions within multiple platform trial domains to see if the interventions have effects on survival, organ support and resource utilisation for the patient cohort.\n\nParticipants will be enrolled in accordance with the platform trial's domain structure to answer the research questions."
+  },
+  {
+    "external_id": "NCT05687474",
+    "title": "Baby Detect : Genomic Newborn Screening",
+    "source_type": "Clinical trial registry",
+    "date": "2022-12-28",
+    "url": "https://clinicaltrials.gov/study/NCT05687474",
+    "citation": "ClinicalTrials.gov. NCT05687474",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "Newborn screening (NBS) is a global initiative of systematic testing at birth to identify babies with pre-defined severe but treatable conditions. With a simple blood test, rare genetic conditions can be easily detected, and the early start of transformative treatment will help avoid severe disabilities and increase the quality of life.\n\nBaby Detect Project is an innovative NBS program using a panel of target sequencing that aims to identify 126 treatable severe early onset genetic diseases at birth caused by 361 genes. The list of diseases has been established in close collaboration with the Paediatricians of the University Hospital in Liege. The investigators use dedicated dried blood spots collected between the first day and 28 days of life of babies, after a consent sign by parents."
+  },
+  {
+    "external_id": "NCT02440620",
+    "title": "Cardiac Toxicity in Medical Treatment of Breast Cancer",
+    "source_type": "Clinical trial registry",
+    "date": "2015-04-29",
+    "url": "https://clinicaltrials.gov/study/NCT02440620",
+    "citation": "ClinicalTrials.gov. NCT02440620",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "This study will describe the epidemiology including prognosis of heart failure related to treatment with anthracycline and trastuzumab for breast cancer.\n\nIn a prospective study Human Epidermal Growth Factor Receptor 2 (HER2) positive breast cancer patients scheduled for trastuzumab treatment at Odense University Hospital, will be offered advanced echocardiographic examination, test of bio-markers and genetic markers for the purpose of investigating if early identification of patients in particular risk of developing heart failure is feasible."
+  },
+  {
+    "external_id": "NCT06414603",
+    "title": "A Comparative Effectiveness Study in Heart Transplant Patients of Rejection Surveillance With Cell-free DNA Versus Endomyocardial Biopsy",
+    "source_type": "Clinical trial registry",
+    "date": "2024-05-02",
+    "url": "https://clinicaltrials.gov/study/NCT06414603",
+    "citation": "ClinicalTrials.gov. NCT06414603",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "This is an open label Comparative Effectiveness Research (CER) study in which patients will be randomized at the site level to Prospera surveillance or EMB surveillance in a 2:1 ratio (Prospera to EMB) at each site.\n\nSubjects will be enrolled into the study while under evaluation for heart transplantation or on the transplant waiting list prior to heart transplantation. All subjects will follow the center's standard of care surveillance schedule from transplant through 4 weeks post-transplantation. EMB during this phase is expected to occur roughly weekly or bi-weekly.\n\nStudy group assignment will take place at randomization. Subjects will be randomized 30 days (± 10 days) post-transplant to Prospera surveillance versus EMB surveillance in a 2:1 ratio. Rejection surveillance (Prospera Group and EMB Group) will be performed at times corresponding to the institutional standard of care schedule for rejection surveillance."
+  },
+  {
+    "external_id": "NCT04327713",
+    "title": "Meta-analysis of Fish Oil Supplementation and Cardiovascular Outcomes in Diabetes",
+    "source_type": "Clinical trial registry",
+    "date": "2020-03-28",
+    "url": "https://clinicaltrials.gov/study/NCT04327713",
+    "citation": "ClinicalTrials.gov. NCT04327713",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Fish oil contains a large amount of long-chain omega-3 polyunsaturated fatty acids, which are considered an important component of a healthy diet. As many patients do not eat fish, supplementation with fish oil is a common strategy to provide sufficient amounts of these particular fatty acids in daily life. Fish oil supplementation has been investigated for decades for its cardio-protective effects and its ability to lower serum triglycerides. People with diabetes mellitus have an increased risk for cardiovascular events and show alterations in lipids with high triglycerides. Whether there is a benefit of fish oil supplementation in this high risk group remains unclear with major international diabetes associations recommending against the use of fish oil supplements. The European Association for the Study of Diabetes (EASD) has not made any recommendations about the use of fish oils in people with diabetes since 2004. To inform the update of the EASD clinical practice guidelines for nutrition therapy, the Diabetes and Nutrition Study Group (DNSG) of the EASD has commissioned the proposed systematic review and meta-analysis of randomized controlled trials of the effect of fish oil supplementation on cardiovascular outcomes in people with diabetes and use the Grading of Recommendations Assessment, Development and Evaluation (GRADE) approach to assess the certainty of the evidence."
+  },
+  {
+    "external_id": "NCT05434923",
+    "title": "PORTHOS - PORTuguese Heart Failure Observational Study",
+    "source_type": "Clinical trial registry",
+    "date": "2022-06-08",
+    "url": "https://clinicaltrials.gov/study/NCT05434923",
+    "citation": "ClinicalTrials.gov. NCT05434923",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "This study aims to determine the prevalence of heart failure in the resident population in mainland Portugal aged 50 years or above, using a contemporary, guideline-based diagnostic approach, to optimize patient management and improve strategic healthcare decision-making"
+  },
+  {
+    "external_id": "NCT06675552",
+    "title": "Non-interventional Study on Guideline Directed Medical Therapy for Patients With Heart Failure (HF) in Germany",
+    "source_type": "Clinical trial registry",
+    "date": "2024-09-20",
+    "url": "https://clinicaltrials.gov/study/NCT06675552",
+    "citation": "ClinicalTrials.gov. NCT06675552",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Heart failure (HF) is a global public health issue that affects more than 63 million people worldwide. The clinical and economic burden of HF on health care systems is substantial. Heart failure with reduced ejection fraction (HFrEF) represents approximately 50% of the HF patient population.The burden of HF is expected to increase substantially as the population ages, and despite improvements in treatment, hospitalisation and mortality rates remain especially high in HFrEF patients. The current guideline recommendation of directed medical therapy for HFrEF combines four drug classes with proven prognostic benefit: Angiotensin receptor-neprilysin inhibitor (ARNI)/angiotensin converting enzyme inhibitors (ACE I)/angiotensin receptor blockers (ARB), betablockers (BB), mineralocorticoid receptor antagonists (MRA), and sodium-glucose co-transporter 2 inhibitors (SGLT2i). The 2023 ESC (European Society of Cardiology) HF guideline update additionally recommends a rapid in-hospital sequencing approach of guideline-directed medical therapy (GDMT) with frequent physician visits during the first 6 weeks post discharge. Studies investigating the implementation of GDMT in a real-world setting have shown that a significant proportion of patients did not receive the recommended drug combination therapy. Delayed initiation of GDMT contributes to the low number of patients receiving guideline concordant HFrEF therapy, which ultimately may affect patient outcomes. One approach to implement the 2023 ESC guideline updates for heart failure treatment regarding early in-hospital initiation and rapid up-titration of GDMT could be to provide specific training on GDMT recommendations. Such a standardised training is offered to the physicians treating HF patients within selected hospitals of the German Helios hospital network (Helios-GDMT-program). Evidence is needed in order to assess whether in-hospital initiation and up-titration of all phenotype concordant classes of GDMT at hospital discharge can be observed after standardised physician training and whether the GDMT-program implementation also translates into real-world routine outpatient care with respect to use of GDMT and clinical outcomes."
+  },
+  {
+    "external_id": "NCT07714252",
+    "title": "Virtual Nurse and Social Worker Palliative Care Team to Improve Quality of Life in Veterans With Heart Failure or COPD",
+    "source_type": "Clinical trial registry",
+    "date": "2026-07-15",
+    "url": "https://clinicaltrials.gov/study/NCT07714252",
+    "citation": "ClinicalTrials.gov. NCT07714252",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "Many Veterans living with heart failure or chronic obstructive pulmonary disease (COPD) experience significant symptoms - such as breathlessness, fatigue, depression, and anxiety -that reduce their quality of life. Despite how common these symptoms are, they are often not adequately addressed in routine care. This study tests whether a virtual team of a nurse and social worker can improve quality of life, depression, anxiety, and other patient-reported outcomes for Veterans with heart failure or COPD who are at high risk of hospitalization or death. The nurse helps Veterans manage their most bothersome symptoms using a structured approach, and the social worker provides brief counseling to address emotional and psychological concerns. Both work closely with the Veteran's primary care provider and palliative care clinician to coordinate additional care as needed. The study also examines whether enhanced implementation support helps VA sites adopt the program more successfully compared to standard implementation support."
+  },
+  {
+    "external_id": "NCT06947148",
+    "title": "The Impact of Comprehensive Post Hospital Management Based on DHI on Cardiac Function in Patients With HF",
+    "source_type": "Clinical trial registry",
+    "date": "2025-04-21",
+    "url": "https://clinicaltrials.gov/study/NCT06947148",
+    "citation": "ClinicalTrials.gov. NCT06947148",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "Due to the complex nature of HF patients' conditions, long-term treatment and management are required, especially post hospital management, which is of great significance for improving patients' cardiac function and quality of life. With the increasing popularity of smartphones and the continuous development of medical technology, digital health intervention (DHI) has emerged as a new medical model in the treatment of diseases.\n\nThis study will establish a comprehensive post hospital management model of HF based on DHI, including cognitive behavioral therapy, digital self-monitoring and remote dielectric sensing (ReDS™) technology, etc., comprehensively strengthen the post hospital intervention and management of HF. Objective to explore the effect of comprehensive post hospital management based on DHI on cardiac function of patients with HF 6 months after discharge."
+  },
+  {
+    "external_id": "NCT02230150",
+    "title": "ADHESION TO THERAPEUTIC STRATEGIES FOR OUTPATIENTS WITH HEART FAILURE - ADhesion-HF",
+    "source_type": "Clinical trial registry",
+    "date": "2014-08-20",
+    "url": "https://clinicaltrials.gov/study/NCT02230150",
+    "citation": "ClinicalTrials.gov. NCT02230150",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Heart failure",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "The purpose of this study is to verify the impact of the educational intervention in the adhesion to therapeutic strategies for patients with heart failure."
+  },
+  {
+    "external_id": "NCT07349121",
+    "title": "OPTION-EMEA Clinical Trial",
+    "source_type": "Clinical trial registry",
+    "date": "2026-01-09",
+    "url": "https://clinicaltrials.gov/study/NCT07349121",
+    "citation": "ClinicalTrials.gov. NCT07349121",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "The OPTION-EMEA post-market study is intended to gather real world clinical data for patients undergoing AF ablation with the FARAPULSE™ Pulsed Field Ablation (PFA) System and subsequent left atrial appendage closure (LAAC) with a WATCHMAN FLX™ Pro or WATCHMAN FLX device during one interventional case.\n\nThe study will include patients that are clinically indicated for atrial fibrillation (AF) ablation using the FARAPULSE PFA System and for left atrial appendage closure (LAAC) treatment using a WATCHMAN FLX Pro or WATCHMAN FLX device as part of the patient's standard of care determined by their doctor's medical judgement."
+  },
+  {
+    "external_id": "NCT05144932",
+    "title": "StrokeAlarm Trial 2",
+    "source_type": "Clinical trial registry",
+    "date": "2021-11-20",
+    "url": "https://clinicaltrials.gov/study/NCT05144932",
+    "citation": "ClinicalTrials.gov. NCT05144932",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "This open, multicenter, prospective, singel-arm study will evaluate usability and feasibility of a wearable stroke indication system (Stroke Alarm) in patients with recent TIA, recent minor stroke without persistent arm motor deficit, or atrial fibrillation up to 1 month."
+  },
+  {
+    "external_id": "NCT00340314",
+    "title": "A Trial of Circumferential Pulmonary Vein Ablation (CPVA) Versus Antiarrhythmic Drug Therapy in for Paroxysmal Atrial Fibrillation (AF)",
+    "source_type": "Clinical trial registry",
+    "date": "2006-06-19",
+    "url": "https://clinicaltrials.gov/study/NCT00340314",
+    "citation": "ClinicalTrials.gov. NCT00340314",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "Background: Circumferential pulmonary vein ablation (CPVA) has been safely and effectively performed for treating paroxysmal atrial fibrillation (PAF); however, its safety and efficacy, as compared with those of antiarrhythmic drug therapy (ADT), have never been formally assessed in a randomized controlled trial.\n\nThe Purpose of this study was to evaluate CPVA versus ADT in patients with PAF in a randomized controlled trial."
+  },
+  {
+    "external_id": "NCT02345356",
+    "title": "A Genomic Approach to Warfarin Dose Prescription in Admixed Caribbean Hispanics",
+    "source_type": "Clinical trial registry",
+    "date": "2015-01-19",
+    "url": "https://clinicaltrials.gov/study/NCT02345356",
+    "citation": "ClinicalTrials.gov. NCT02345356",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "Caribbean Hispanics are a population with a disproportionately high prevalence of cardio-metabolic disorders but with a limited expectation of benefits from current pharmacogenetic algorithms derived mainly in subjects of relatively pure ancestry. The investigators focus on warfarin responses to develop urgently-needed DNA-driven prescription guidelines for this population, who have arisen from European, West African and Amerindian genomic origins to produce a highly heterogeneous population. Our project combines admixture analysis and DNA-sequencing with development of more accurate rules for better predictability of warfarin dosing to immediately serve this medically underserved population."
+  },
+  {
+    "external_id": "NCT07567378",
+    "title": "CARTIZ Registry: Cartilage, Arthropathy and Imaging Under Tirzepatide in Zone-stratified Cohorts - A Four-Institute Mexican Observational Registry",
+    "source_type": "Clinical trial registry",
+    "date": "2026-04-21",
+    "url": "https://clinicaltrials.gov/study/NCT07567378",
+    "citation": "ClinicalTrials.gov. NCT07567378",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "CARTIZ is a prospective observational clinical registry of adults in Mexico receiving tirzepatide (a dual GLP-1/GIP receptor agonist) under an independent clinical indication - typically type 2 diabetes, insulin resistance, obesity, renal protection, metabolic hypertension, or associated off-label metabolic use. The registry is entirely observational: CARTIZ does not initiate, modify, interrupt, or supply tirzepatide, and does not dictate dose, route, or duration. All pharmacological exposure decisions are made by the treating physician independently of study participation. The registry is operationalized through a four-institute architecture integrating three Mexican National Institutes of Health and one national imaging laboratory. Core 1 (Knee Cartilage Imaging, Ci3M UAM-Iztapalapa) performs bilateral 3T MRI with quantitative T2 mapping at Week 0 and Week 52. Core 2 (Cardiac Imaging, Instituto Nacional de Cardiología Ignacio Chávez) performs non-contrast cardiac computed tomography for radiomic phenotyping of epicardial adipose tissue at Week 0 and Week 52 under cardiovascular Co-Principal Investigator Dr. Erick Alexánderson Rosas. Core 3 (HLA Typing, Instituto Nacional de Ciencias Médicas y Nutrición Salvador Zubirán, Transplant Department) performs Class I and Class II HLA typing by PCR-SSO Reverse Luminex. Core 4 (Body Composition, Universidad La Salle México) performs multi-frequency bioelectrical impedance analysis (seca mBCA) at six longitudinal timepoints capturing visceral adipose tissue trajectory, phase-angle trajectory, appendicular skeletal muscle mass, and hydration ratios at zero marginal cost. The registry enrolls n=30 patients across three clinical sites with identical protocol (IMSS Clínica Río Magdalena, INCMNSZ outpatient clinic, and a private practice site in Mexico City), generating 60 evaluable knees and 30 paired cardiac CT studies. The primary co-endpoints address a mechanistic question no other tirzepatide study is positioned to answer: whether the articular response to tirzepatide in inflammatory arthropathy precedes and mechanistically precedes weight loss, through formal mediation analysis of Week-4 ACR20 response via high-sensitivity C-reactive protein, SERPINB2, and dipeptidyl peptidase-4 activity, restricted to the Mechanistic Analysis Set of patients with tirzepatide exposure ≤16 weeks at Week 0 and delta-BMI \\<1.0 kg/m² through Week 4. A prespecified Surgical Tissue Subcohort is declared at initial registration to establish public scientific priority on direct human epicardial adipose tissue transcriptomic characterization under dual GIP/GLP-1 receptor agonism. Subcohort participants who undergo clinically indicated cardiac surgery at INCar during follow-up (coronary artery bypass grafting, valve replacement, or combined procedures) are invited to provide specific additional informed consent for collection of epicardial adipose tissue fragments routinely excised during operative access and otherwise discarded as surgical waste. Operational launch is contingent on separate INCar tissue-specific approvals and will proceed via PRS record amendment when ready"
+  },
+  {
+    "external_id": "NCT07044011",
+    "title": "Precise Phenotyping Classification in Atrial Fibrillation",
+    "source_type": "Clinical trial registry",
+    "date": "2025-06-09",
+    "url": "https://clinicaltrials.gov/study/NCT07044011",
+    "citation": "ClinicalTrials.gov. NCT07044011",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "This study aims to integrate multi-omics data (genomics, imaging, serology, etc.) to achieve precise phenotyping classification for atrial fibrillation (AF) patients and explore personalized rhythm control strategies. By enrolling over 1,000 AF patients, we will collect genomic data including GWAS and single-cell sequencing, combined with cardiac MRI, CT, echocardiography imaging, and serum biomarkers, to uncover AF pathological mechanisms and recurrence risks at molecular and structural levels. Machine learning and AI algorithms will be employed to develop AF phenotypic classification models, which will be validated across multiple centers to assess their accuracy and reliability in predicting AF recurrence and therapeutic responses. Furthermore, clinical trials will evaluate the efficacy of oral dronedarone hydrochloride tablets and intravenous nicorandil hydrochloride in preventing post-catheter ablation recurrence and their safety/effectiveness in early cardioversion. Finally, based on advanced phenotyping results, we will establish personalized rhythm control strategies integrating pharmacotherapy, catheter ablation, and lifestyle interventions to optimize AF management."
+  },
+  {
+    "external_id": "NCT03012906",
+    "title": "Registry of the Combination of Antiplatelet Agents and Anticoagulant in Atrial Fibrillation Patients With a CHA2DS2VASc Score >1 Undergoing Percutaneous Coronary Interventions",
+    "source_type": "Clinical trial registry",
+    "date": "2017-01-05",
+    "url": "https://clinicaltrials.gov/study/NCT03012906",
+    "citation": "ClinicalTrials.gov. NCT03012906",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Patients undergoing percutaneous coronary intervention (PCI) with stent implantation and requiring chronic anticoagulation for atrial fibrillation (AF) with a CHA2DS2-VASc \\>1 are required to receive triple antithrombotic therapy . This triple therapy includes dual antiplatelet therapy with clopidogrel and aspirin in combination with an oral anticoagulant with either a vitamin K antagonist (VKA) or an oral anticoagulant (NOAC).\n\nRecently NOAC, inhibiting the IIa (dabigatran) or Xa (rivaroxaban and apixaban) in the coagulation cascade have demonstrated non inferiority compared to VKA to prevent thrombo-embolic events in non-valvular AF for patients with a CHA2DS2-VASc \\>1 . Interestingly, NOAC are associated with a reduced fatal bleeding rate compared to VKA. Overall they seem to result in a lower bleeding rate compared to VKA in association with antiplatelet agents.\n\nRecently European guidelines regarding patients requiring chronic anticoagulant therapy and undergoing coronary stent implantation have been updated. However they are based on an expert consensus because of the scarce data available.\n\nThese guidelines advocate the combination of dual antiplatelet therapy with clopidogrel and aspirin in combination with the lower dose of OAC or VKA with a target INR between 2 and 2.5 . The triple therapy should be prescribed for 1 to 6 months depending on the bleeding and thrombotic risk and the clinical setting. In patients with high bleeding risk the guidelines suggest that a sole antiplatelet agent could be used in addition to anticoagulation following the WOEST study . In the recently published ESC guidelines on the management of atrial fibrillation, despite the lack of new data, the expert advocate triple therapy followed by dual antiplatelet therapy in most patients for 12 months.\n\nThe recently published PIONEER study reinforced the possibility of the use of rivaroxaban in these patients. In this trial including ACS and not ACS patients undergoing PCI rivaroxaban 15 mg in addition to a P2Y12 ADP receptor antagonist was associated with less clinically relevant bleeding compared to triple therapy with VKA- aspirin and clopidogrel and similar efficacy ."
+  },
+  {
+    "external_id": "NCT01983813",
+    "title": "Improved Cardiovascular Risk Reduction to Enhance Rural Primary Care",
+    "source_type": "Clinical trial registry",
+    "date": "2013-10-28",
+    "url": "https://clinicaltrials.gov/study/NCT01983813",
+    "citation": "ClinicalTrials.gov. NCT01983813",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "The trial will examine whether a centralized Prevention Health \\& Cardiovascular Risk Service (PHCVRS) run by clinical pharmacists at the University of Iowa can be implemented in primary care offices and whether it can improve the care delivered to patients at risk for developing cardiovascular disease."
+  },
+  {
+    "external_id": "NCT07205679",
+    "title": "Cardiovascular Performance and Exercise Response in Patients With Persistent or Permanent Atrial Fibrillation and Heart Failure Pre and Post Cardioversion or Pace and Ablate",
+    "source_type": "Clinical trial registry",
+    "date": "2025-07-28",
+    "url": "https://clinicaltrials.gov/study/NCT07205679",
+    "citation": "ClinicalTrials.gov. NCT07205679",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Heart Failure (HF) and Atrial Fibrillation (AF) are two conditions that commonly occur together. Clinical guidelines consider a resting heart rate of 100-110 beats per minute (bpm) acceptable for patients with HF and AF while 72 bpm is considered the average in healthy populations. A higher resting heart rate indicates that the heart is working harder to meet bodily demands, and though it may be considered safe for patients with HF and AF to have a heart rate of 110 bpm, the investigators believe it is having a significant negative impact on patient quality of life and their ability to exercise. The current study will test exercise ability using a treadmill test before and after either a cardioversion, where the patient's heartbeat is reset using electric shocks, or a pace and ablate method, where the patient receives a pacemaker to regulate their heart rhythm and an ablation (intentional damaging) of the node that coordinates the beats within the heart. This will allow investigators to compare how the heart responds to exercise when the patient is on rate-control and anticoagulation medication therapy (before cardioversion or pace and ablate) and after the procedures. During exercise, the investigators will do a blood test that lets investigators know how efficiently the heart is working and record any symptoms experienced. The investigators will also collect information about the patient's quality of life. Using this information, the investigators hope to better understand whether the current standard of a resting heart rate of 100-110 bpm is ideal for patient quality of life."
+  },
+  {
+    "external_id": "NCT06674304",
+    "title": "Registry Initiative Across Borders for Atrial Fibrillation in Africa",
+    "source_type": "Clinical trial registry",
+    "date": "2024-11-03",
+    "url": "https://clinicaltrials.gov/study/NCT06674304",
+    "citation": "ClinicalTrials.gov. NCT06674304",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "Atrial fibrillation is a penalizing disease in several ways: morbidity and mortality, health costs. Several multicenter registries have been published. Until now, no multicenter registry involving several countries has been carried out in Africa. The goal of RIBAT AF Africa is to fill this gap, by recruting patients from twelve african centers. All the centers are a third level Atrial Fibrillation managment facility centers.\n\nAfter recruitment , a complete clinical assessment with analysis of comorbidities will be a priority of this registry to try to understand the epidemiological profile of atrial fibrillation in Africa. Then, we will proceed to the temporal classification of atrial fibrillation according to the 2024 ESC recommendations (type and thromboembolic risk in particular.).\n\nAfter this step, the management will be analyzed with three main axes: management of comorbidities, antithrombotic treatment, rhythm and frequency control. Some therapeutic techniques such as ablation of atrial fibrillation were discussed without much detail because many countries do not yet have access to these expensive techniques.\n\nA six-month evaluation is necessary to judge above all the applicability of the measures accessible in all countries and in particular anticoagulant treatment.\n\nAll these data will be recorded anonymously and electronically. Each country can have access to its own data anytime. The statistical analysis will be carried out by a team within the University Hospital of Tangier , as well as all IT logistics. This team will also organize electronic monitoring and underlying all abnomalities in CRF."
+  },
+  {
+    "external_id": "NCT03169608",
+    "title": "Autonomic State, Cardiovascular Control and Outcomes in Coronary Surgery",
+    "source_type": "Clinical trial registry",
+    "date": "2017-05-24",
+    "url": "https://clinicaltrials.gov/study/NCT03169608",
+    "citation": "ClinicalTrials.gov. NCT03169608",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "Characterization of the perioperative autonomic nervous system state, cardiovascular and cerebrovascular control and microcirculation in order to predict postoperative atrial fibrillation and acute kidney injury in patients undergoing coronary artery bypass graft surgery"
+  },
+  {
+    "external_id": "NCT02801708",
+    "title": "Enhanced Detection of Underlying, Covert ATrial Fibrillation Using 7-day Holter Electrocardiogram in Patients With Embolic Stroke of Undetermined Source",
+    "source_type": "Clinical trial registry",
+    "date": "2016-06-04",
+    "url": "https://clinicaltrials.gov/study/NCT02801708",
+    "citation": "ClinicalTrials.gov. NCT02801708",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Cardiology",
+    "condition": "Atrial fibrillation",
+    "topics": [
+      "monitoring"
+    ],
+    "verified": true,
+    "full_text": "The aim of this study is to determine the diagnostic yield of continuous 7-day Holter ECG for detecting covert paroxysmal atrial fibrillation in patients with recent embolic stroke or transient ischemic attack (TIA) of undetermined cause after completion of a standard clinical work up including an initial 24-hour Holter monitoring."
+  },
+  {
+    "external_id": "NCT01730534",
+    "title": "Multicenter Trial to Evaluate the Effect of Dapagliflozin on the Incidence of Cardiovascular Events",
+    "source_type": "Clinical trial registry",
+    "date": "2012-11-15",
+    "url": "https://clinicaltrials.gov/study/NCT01730534",
+    "citation": "ClinicalTrials.gov. NCT01730534",
+    "publisher": "ClinicalTrials.gov",
     "specialty": "Endocrinology",
     "condition": "Type 2 diabetes",
-    "topics": ["Guideline update", "Monitoring"],
-    "verified": false,
-    "full_text": "[SIMULATED] This placeholder is not a publication and contains no clinical evidence. Search terms only: type 2 diabetes, A1c, metformin, GLP-1, monitoring."
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "This study is being carried out to determine the effect of dapagliflozin on cardiovacular outcomes when added to current background therapy in patients with type 2 diabetes with either established cardiovacular disease or cardiovascular risk factors."
+  },
+  {
+    "external_id": "NCT06558708",
+    "title": "A Trial Comparing Efficacy, Tolerability, and Safety of GZR101 Injection Once Daily (OD) and GZR33-70 Injection OD",
+    "source_type": "Clinical trial registry",
+    "date": "2024-08-14",
+    "url": "https://clinicaltrials.gov/study/NCT06558708",
+    "citation": "ClinicalTrials.gov. NCT06558708",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "clinical trials"
+    ],
+    "verified": true,
+    "full_text": "This trial is conducted in China. The aim of the trial is to compare the efficacy, tolerability, and safety of GZR101 Injection and GZR33-70 Injection in type 2 diabetes inadequately controlled on basal/ premixed insulin once daily at least with or without pre-dinner meal-time insulin."
+  },
+  {
+    "external_id": "NCT04123587",
+    "title": "Genetic Variants Replication Study Associated With Dependence on Sulfonylurea in Participants With Type 2 Diabetes",
+    "source_type": "Clinical trial registry",
+    "date": "2019-09-10",
+    "url": "https://clinicaltrials.gov/study/NCT04123587",
+    "citation": "ClinicalTrials.gov. NCT04123587",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "This study was designed to reproduce candidate single nucleotide variants found by whole exome sequencing in some type 2 diabetic patients dependent on sulfonylurea in a separate patient group. The validation of the dependence-related variations performed in this study is expected to help decision-making in the clinical use of sulfonylurea in the future."
+  },
+  {
+    "external_id": "NCT05368220",
+    "title": "Translating Genetic Knowledge Into Clinical Care in Non-Autoimmune Diabetes",
+    "source_type": "Clinical trial registry",
+    "date": "2022-05-02",
+    "url": "https://clinicaltrials.gov/study/NCT05368220",
+    "citation": "ClinicalTrials.gov. NCT05368220",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "treatment sequencing"
+    ],
+    "verified": true,
+    "full_text": "The aim of TRANSLATE is to implement genetic information directly into patient care to improve diagnosis and treatment of non-autoimmune diabetes. This project is the first large-scale implementation of systematic genetic testing within a common, non-communicable, chronic disease in Denmark, and will spearhead efforts to advance personalized medicine in Denmark.\n\nThe project will contribute to establishing technology, workflow, and evidence on how to implement and communicate actionable genetic information to clinicians and patients in a generalized format. These developments are pivotal for personalized medicine to reach broader clinical application."
+  },
+  {
+    "external_id": "NCT05752955",
+    "title": "SMART Health Pregnancy 2 - Intervention to Reduce Anaemia and Cardiometabolic Risk During Pregnancy and in the First Year Following Birth",
+    "source_type": "Clinical trial registry",
+    "date": "2022-12-21",
+    "url": "https://clinicaltrials.gov/study/NCT05752955",
+    "citation": "ClinicalTrials.gov. NCT05752955",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "The goal of this clinical trial is to determine if a complex intervention called SMARThealth Pregnancy can improve the detection and management of high-risk conditions during pregnancy and in the first year after birth in women living in rural India.\n\nThe main questions it aims to answer are:\n\n* Can screening of pregnant and postpartum women using the SMARThealth Pregnancy intervention decrease anaemia prevalence at 1 year after birth?\n* Can the SMARThealth Pregnancy intervention improve postnatal testing after a pregnancy affected by hypertension and diabetes? Participants in the intervention group will be screened by their community health worker at several timepoints during pregnancy, and in the first year after birth using the SMARThealth Pregnancy tablet App. The community health worker will ask about each woman about her medical and obstetric history, then measure her blood pressure, haemoglobin (using a point of care device), and offer a referral for a glucose tolerance test when indicated. Women who screen positive for anaemia, hypertension or diabetes will be given advice and referred to the primary care doctor. The primary care doctor will have a complimentary tablet app to facilitate electronic referral and evidence-based prescribing when indicated. The comparison group will have usual antenatal and postnatal care."
+  },
+  {
+    "external_id": "NCT04440319",
+    "title": "Diabetes Nutrition Education With Glycemic Control",
+    "source_type": "Clinical trial registry",
+    "date": "2020-05-01",
+    "url": "https://clinicaltrials.gov/study/NCT04440319",
+    "citation": "ClinicalTrials.gov. NCT04440319",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "T2DM in Indonesia has increased dramatically from 7.0% in 2017 to 10.9% in 2018. In Padang, West Sumatra, diabetes prevalence was 1.3% in 2013 and increased slowly in 2018. Majority of T2DM were not able to achieve optimal glycaemic glucose control measured using HbA1c with a target of less than \\< 6.5% based on WHO recommendation.\n\nProblem Statement NCD guidelines provided management DM in general. Pedoman Gizi Seimbang was for healthy people. It is crucial to update the guideline following the current issues even the Indonesian consensus in 2015 provided a T2DM management diet.\n\nStudy Hypotheses There is a significant difference in glycemic control (HbA1c and FBG) nutritional status, knowledge, attitude, practice, quality of life, acceptability and adherence behavior among individuals with T2DM in intervention group.\n\nProcedures Subjects will be divided into Intervention and control groups after they finished reading, signed a letter of agreement and informed consent. Subjects also have the right to be withdrawn after listening explanation of the investigators to seeking the potential participants based on inclusion criteria.\n\nThe individual with T2DM (intervention group) will follow the Diabetes Mellitus Nutrition Education (DNE) program based on the curriculum of DNE modules properly and certain measurements. There is a selected nutritionist at each PHC who will convey the DNE program. DM nutrition education counseling will be delivered every week for 30 minutes.\n\nIndividual with T2DM\n\n* Baseline An individual with T2DM will be asked to fill the questionnaire and follow all of the measurements (Nutritional Status, Biochemical, Clinical, and Dietary Intake).\n* Intervention (3 months) All of the subjects will follow the DM Nutrition Education program for 3 months which will be delivered by nutritionists in PHC.\n* Follow up (3 months) All of the subjects will continue the program independently in 3 months. Then, the subjects will do the same activity as a baseline to compare the data between baselines, intervention and follow up Control The individual with T2DM in the control group will still follow the conventional DM nutrition education. After the DNE program finished, the material will also be distributed to the individual with T2DM in the control group."
+  },
+  {
+    "external_id": "NCT05566847",
+    "title": "Overcoming Therapeutic Inertia Among Adults Recently Diagnosed With Type 2 Diabetes",
+    "source_type": "Clinical trial registry",
+    "date": "2022-09-21",
+    "url": "https://clinicaltrials.gov/study/NCT05566847",
+    "citation": "ClinicalTrials.gov. NCT05566847",
+    "publisher": "ClinicalTrials.gov",
+    "specialty": "Endocrinology",
+    "condition": "Type 2 diabetes",
+    "topics": [
+      "guideline update"
+    ],
+    "verified": true,
+    "full_text": "Therapeutic inertia may result from providers, patients, and/or systems, but can be detrimental to a patients' health by putting them at risk for diabetes complications, though addressing it early can mitigate some of its effects. In Type 2 diabetes (T2D) care, this may look like failure to initiate metformin therapy early in the disease course. This project aims to evaluate the effects of proactive outreach by a non-physician clinician (Accountable Population Manager \\[APM\\]) to patients with newly diagnosed Type 2 diabetes. The team hypothesizes individuals receiving proactive outreach by an APM will be more likely to achieve glycemic targets at 6 months following start of the intervention."
   }
 ]

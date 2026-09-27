@@ -24,7 +24,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
   if (!huddle.brief)
     return <p>This huddle is waiting for an expert response.</p>;
   const brief = huddle.brief;
-  const text = `PULSEPOINT — CLINICAL HUDDLE BRIEF\n${brief.synthesisLabel}\n\nQUESTION\n${huddle.question.question}\n\nEVIDENCE\n${brief.evidence.join("\n")}\n\nEXPERT PERSPECTIVE${huddle.expert?.demo ? " (FICTIONAL DEMO)" : ""}\n${huddle.response}\n\nKEY TAKEAWAYS\n${brief.takeaways.map((t) => `• ${t}`).join("\n")}\n\nUNCERTAINTY\n${brief.uncertainty}\n\nSOURCES\n${huddle.sources.map((s) => `${s.title}\n${s.url}`).join("\n\n")}`;
+  const text = `PULSEPOINT — CLINICAL HUDDLE BRIEF\n${brief.synthesisLabel}\n\nQUESTION\n${huddle.question.question}\n\nEVIDENCE\n${brief.evidence.join("\n")}\n\nEXPERT PERSPECTIVE${huddle.responseIsSimulated ? " (SIMULATED EXPERT RESPONSE)" : ""}\n${huddle.response}\n\nAI SYNTHESIS\n${brief.takeaways.map((t) => `• ${t}`).join("\n")}\n\nUNCERTAINTY\n${brief.uncertainty}\n\nSOURCES\n${huddle.sources.map((s) => `${s.title}\n${s.citation || s.publisher}${s.url ? `\n${s.url}` : ""}`).join("\n\n")}`;
   async function copy() {
     try {
       await navigator.clipboard.writeText(text);
@@ -94,11 +94,8 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
             <p key={line}>{line}</p>
           ))}
           <div className="inline-citations">
-            {huddle.sources.map((s, i) => (
-              <a key={s.id} href={s.url} target="_blank" rel="noreferrer">
-                [{i + 1}] {s.publisher}
-                <ArrowUpRight size={12} />
-              </a>
+            {huddle.sources.map((s) => (
+              s.url ? <a key={s.id} href={s.url} target="_blank" rel="noreferrer">[{s.id}] {s.citation || s.publisher}<ArrowUpRight size={12} /></a> : <span key={s.id}>[{s.id}] {s.citation || s.publisher}</span>
             ))}
           </div>
         </section>
@@ -107,7 +104,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
             <span className="section-index">03</span>
             <h3>Expert perspective</h3>
             <span className="tiny-tag">
-              {huddle.expert?.demo ? "SIMULATED OPINION" : "EXPERT OPINION"}
+              {huddle.responseIsSimulated ? "SIMULATED EXPERT RESPONSE" : huddle.expert?.demo ? "SYNTHETIC DEMO PROFILE" : "EXPERT PERSPECTIVE"}
             </span>
           </div>
           <blockquote>{huddle.response}</blockquote>
@@ -119,7 +116,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
               {huddle.expert?.name}
               <small>
                 {huddle.expert?.demo
-                  ? "Fictional demo expert"
+                  ? "DEMO EXPERT / Synthetic profile"
                   : huddle.expert?.specialty}
               </small>
             </span>
@@ -130,7 +127,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
             <span className="section-index">04</span>
             <h3>Key takeaways</h3>
             <span className="tiny-tag">
-              {huddle.demo ? "DEMO SYNTHESIS" : "AI SYNTHESIS"}
+              {brief.generatedBy === "template" ? "DETERMINISTIC BACKEND SYNTHESIS" : "AI SYNTHESIS"}
             </span>
           </div>
           <ul>
@@ -154,12 +151,9 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
           <ol>
             {huddle.sources.map((s) => (
               <li key={s.id}>
-                <a href={s.url} target="_blank" rel="noreferrer">
-                  {s.title}
-                  <ArrowUpRight size={14} />
-                </a>
+                {s.url ? <a href={s.url} target="_blank" rel="noreferrer">{s.title}<ArrowUpRight size={14} /></a> : <span>{s.title}</span>}
                 <small>
-                  {s.publisher} · {s.date}
+                  {s.citation || s.publisher}{s.date ? ` · ${s.date}` : ""}
                 </small>
               </li>
             ))}
@@ -167,7 +161,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
         </section>
         <footer className="brief-footer">
           <ShieldCheck size={15} />
-          {brief.synthesisLabel}
+          {brief.synthesisLabel} · Not a clinical recommendation
         </footer>
       </article>
       <aside className="brief-aside">

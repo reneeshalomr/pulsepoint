@@ -32,11 +32,23 @@ def tokenize(text: str) -> list[str]:
 
 
 def split_chunks(text: str, max_sentences: int = 4) -> list[str]:
-    sentences = [piece.strip() for piece in re.split(r"(?<=[.!?])\s+", text.strip()) if piece.strip()]
+    pieces = re.split(r"(?<=[.!?])\s+", text)
+    sentences: list[str] = []
+    offsets: list[tuple[int, int]] = []
+    cursor = 0
+    for piece in pieces:
+        start = text.find(piece, cursor)
+        if start < 0:
+            continue
+        end = start + len(piece)
+        if piece.strip():
+            sentences.append(piece.strip())
+            offsets.append((start, end))
+        cursor = end
     if not sentences:
-        return [text.strip()] if text.strip() else []
+        return [text] if text.strip() else []
     if len(sentences) <= 2:
-        return [" ".join(sentences)]
+        return [text[offsets[0][0]:offsets[-1][1]]]
     chunks = []
     start = 0
     while start < len(sentences):
@@ -45,7 +57,7 @@ def split_chunks(text: str, max_sentences: int = 4) -> list[str]:
         while end < len(sentences) and end - start < max_sentences and (end - start < 2 or word_count < 80):
             word_count += len(sentences[end].split())
             end += 1
-        chunks.append(" ".join(sentences[start:end]))
+        chunks.append(text[offsets[start][0]:offsets[end - 1][1]])
         if end == len(sentences):
             break
         start = end - 1  # 1 sentence overlap preserves context between windows.
@@ -86,7 +98,10 @@ def search_sources_with_method(session: Session | None, query: str, *, condition
     if condition:
         sources = [source for source in sources if source.get("condition") == condition]
     if topic:
-        sources = [source for source in sources if topic in (source.get("topics") or [])]
+        requested_topic = topic.casefold()
+        sources = [source for source in sources
+                   if any(isinstance(value, str) and value.casefold() == requested_topic
+                          for value in (source.get("topics") or []))]
     if specialty:
         sources = [source for source in sources if source.get("specialty") == specialty]
     chunks: list[tuple[dict, int, str]] = []
@@ -106,7 +121,8 @@ def search_sources_with_method(session: Session | None, query: str, *, condition
         score = float(raw_score)
         if condition and source.get("condition") == condition:
             score *= 1.5
-        if topic and topic in (source.get("topics") or []):
+        if topic and any(isinstance(value, str) and value.casefold() == topic.casefold()
+                         for value in (source.get("topics") or [])):
             score *= 1.2
         if specialty and source.get("specialty") not in (None, specialty):
             score *= 0.5

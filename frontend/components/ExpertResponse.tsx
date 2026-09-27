@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { ArrowRight, Mic, Square, Sparkles } from "lucide-react";
 import type { Huddle } from "@/types/huddle";
-import { EXAMPLE_RESPONSE } from "@/data/demo";
 import { useVoice } from "@/hooks/useVoice";
 import { EvidenceList, LoadingState } from "./ui";
 
@@ -10,15 +9,19 @@ export function ExpertResponse({
   huddle,
   busy,
   onSubmit,
+  onSimulate,
 }: {
   huddle: Huddle;
   busy: boolean;
-  onSubmit: (text: string) => void;
+  onSubmit: (text: string, mode: "text" | "voice") => void;
+  onSimulate: () => void;
 }) {
   const [response, setResponse] = useState(huddle.response || "");
-  const voice = useVoice((text) =>
-    setResponse((old) => `${old} ${text}`.trim().slice(0, 4000)),
-  );
+  const [voiceUsed, setVoiceUsed] = useState(false);
+  const voice = useVoice((text) => {
+    setVoiceUsed(true);
+    setResponse((old) => `${old} ${text}`.trim().slice(0, 4000));
+  });
   return (
     <div className="two-column expert-layout">
       <section>
@@ -87,10 +90,11 @@ export function ExpertResponse({
           <span>20 characters minimum</span>
           <span>{response.length}/4,000</span>
         </div>
-        {huddle.demo && (
+        {huddle.expert?.demo && (
           <button
             className="text-button sample-response"
-            onClick={() => setResponse(EXAMPLE_RESPONSE)}
+            disabled={busy}
+            onClick={onSimulate}
           >
             <Sparkles size={14} /> Use simulated response
           </button>
@@ -98,7 +102,7 @@ export function ExpertResponse({
         <button
           className="button primary full"
           disabled={busy || response.trim().length < 20}
-          onClick={() => onSubmit(response)}
+          onClick={() => onSubmit(response, voiceUsed ? "voice" : "text")}
         >
           {busy ? (
             <LoadingState label="Preparing brief" />
@@ -109,7 +113,7 @@ export function ExpertResponse({
           )}
         </button>
         <p className="small muted">
-          {huddle.demo
+          {huddle.expert?.demo
             ? "Demo response only. No request is sent to a real clinician."
             : "Submit this perspective to the connected huddle service."}
         </p>

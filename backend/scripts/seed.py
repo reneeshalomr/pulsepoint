@@ -5,7 +5,7 @@ import random
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from sqlmodel import Session, select
+from sqlmodel import Session, delete, select
 
 from app.db import engine, init_db
 from app.models import EvidenceChunk, EvidenceSource, QuestionSignal
@@ -71,8 +71,33 @@ def ensure_demo_signals(session: Session, records: list[dict] | None = None) -> 
 
 
 def ensure_corpus_sources(session: Session) -> None:
-    """Seed the committed corpus without introducing duplicate source identities."""
-    for record in load_corpus():
+    """Seed the committed corpus and drop only simulated placeholders it replaced."""
+    records = list(load_corpus())
+    corpus_ids = {record.get("external_id") for record in records if record.get("external_id")}
+    has_verified_live_records = any(
+        record.get("verified") is True
+        and record.get("source_type") in {"PubMed abstract", "Clinical trial registry"}
+        and record.get("external_id")
+        and record.get("url")
+        for record in records
+    )
+
+    # Old corpus rows remain in SQLite across refreshes. Remove only clearly
+    # labeled simulated placeholders absent from a successfully fetched corpus;
+    # preserve imported and other legitimate evidence rows.
+    if has_verified_live_records:
+        replaced = [source for source in session.exec(select(EvidenceSource)).all()
+                    if source.source_type.startswith("Simulated")
+                    and source.title.startswith("[SIMULATED]")
+                    and not source.verified
+                    and source.url is None
+                    and source.external_id not in corpus_ids]
+        replaced_ids = [source.id for source in replaced]
+        if replaced_ids:
+            session.exec(delete(EvidenceChunk).where(EvidenceChunk.source_id.in_(replaced_ids)))
+            session.exec(delete(EvidenceSource).where(EvidenceSource.id.in_(replaced_ids)))
+
+    for record in records:
         external_id = record.get("external_id")
         if not external_id or session.exec(select(EvidenceSource.id).where(
                 EvidenceSource.external_id == external_id)).first():

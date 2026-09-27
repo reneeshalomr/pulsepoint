@@ -50,7 +50,7 @@ python -m scripts.fetch_corpus
 python -m scripts.seed
 ```
 
-`fetch_corpus` contacts public PubMed E-utilities and ClinicalTrials.gov APIs. If those services are unavailable or return no records, it preserves a valid committed `data/corpus.json` as the deterministic offline fallback. It does not generate realistic-looking fake citations. `scripts.seed` writes the fixed-seed category-only `data/demo_signals.json` and idempotently seeds experts, corpus sources/chunks, and demo signals into SQLite.
+`fetch_corpus` contacts public PubMed E-utilities and ClinicalTrials.gov APIs. If those services are unavailable or return no records, it preserves a valid committed `data/corpus.json` as the deterministic offline fallback. It does not generate realistic-looking fake citations. `scripts.seed` writes the fixed-seed category-only `data/demo_signals.json` and idempotently seeds experts, corpus sources/chunks, and demo signals into SQLite. If a refreshed corpus contains verified live records, seeding removes only obsolete `[SIMULATED]` placeholder source rows and their chunks; unrelated imported evidence is preserved. Restart the API after refreshing to clear process-local retrieval caches. Startup also seeds the refreshed corpus.
 
 ## Configuration
 
