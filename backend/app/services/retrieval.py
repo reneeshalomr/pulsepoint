@@ -144,9 +144,19 @@ def search_sources(session: Session | None, query: str, *, condition: str | None
                                       specialty=specialty, limit=limit)[0]
 
 
+@lru_cache(maxsize=512)
+def _cached_question_results(question_id: str, question_text: str, condition: str,
+                             topic: str, specialty: str, limit: int) -> tuple[dict, ...]:
+    # Questions and the committed corpus are stable during a demo; cache by
+    # question identity and its taxonomy/query fields for repeatable huddles.
+    return tuple(search_sources(None, question_text, condition=condition, topic=topic,
+                                specialty=specialty, limit=limit))
+
+
 def retrieve_for_question(session: Session, question_id: str, limit: int = 5) -> list[dict]:
     question = session.get(HCPQuestion, question_id)
     if question is None:
         raise LookupError("Question not found")
-    return search_sources(session, question.question, condition=question.condition,
-                          topic=question.topic, specialty=question.specialty, limit=limit)
+    results = _cached_question_results(question.id, question.question, question.condition,
+                                       question.topic, question.specialty, limit)
+    return [dict(result) for result in results]

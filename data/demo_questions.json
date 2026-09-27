@@ -1,6 +1,7 @@
 [
   {
     "text": "I have a patient with a complicated treatment history. What's changed recently in the relevant treatment landscape, and what evidence should I review?",
+    "simulated_response": "Simulated response from a fictional demo profile. This response makes no clinical claims. For discussion, review the attached retrieved source IDs: {evidence_refs}.",
     "structure": {
       "specialty": "Oncology",
       "condition": "Breast cancer",
@@ -13,6 +14,7 @@
   },
   {
     "text": "For a patient with heart failure and reduced ejection fraction, what recent evidence should I review about SGLT2 treatment and monitoring?",
+    "simulated_response": "Simulated response from a fictional demo profile. This response makes no clinical claims. For discussion, review the attached retrieved source IDs: {evidence_refs}.",
     "structure": {
       "specialty": "Cardiology",
       "condition": "Heart failure",
@@ -25,6 +27,7 @@
   },
   {
     "text": "For a patient with type 2 diabetes, what has changed recently in evidence for GLP-1 treatment?",
+    "simulated_response": "Simulated response from a fictional demo profile. This response makes no clinical claims. For discussion, review the attached retrieved source IDs: {evidence_refs}.",
     "structure": {
       "specialty": "Endocrinology",
       "condition": "Type 2 diabetes",

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlmodel import Session, SQLModel, select
 
 from app.config import settings
@@ -12,6 +13,8 @@ from app.models import EvidenceSource, Expert
 from app.routers.questions import router as questions_router
 from app.routers.evidence import router as evidence_router
 from app.routers.experts import router as experts_router
+from app.routers.huddles import router as huddles_router
+from app.routers.audio import AUDIO_DIR, router as audio_router
 from app.services.matching import ensure_demo_experts
 
 
@@ -35,6 +38,9 @@ app.add_middleware(
 app.include_router(questions_router)
 app.include_router(evidence_router)
 app.include_router(experts_router)
+app.include_router(huddles_router)
+app.include_router(audio_router)
+app.mount("/static/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
 
 
 @app.get("/api/health")
