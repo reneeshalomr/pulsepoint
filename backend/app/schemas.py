@@ -64,3 +64,50 @@ class ExpertResponseCreate(BaseModel):
             return None
         value = value.strip()
         return value or None
+
+
+class BriefEvidenceItem(BaseModel):
+    statement: str = Field(min_length=1)
+    source_ids: list[str] = Field(default_factory=list)
+    label: Literal["EVIDENCE"]
+
+
+class BriefExpertPerspective(BaseModel):
+    summary: str = Field(min_length=1)
+    expert_name: str = Field(min_length=1)
+    is_simulated: bool
+    audio_url: str | None = None
+    label: Literal["EXPERT OPINION"]
+
+
+class BriefTakeaway(BaseModel):
+    point: str = Field(min_length=1)
+    source_ids: list[str] = Field(default_factory=list)
+    label: Literal["AI SYNTHESIS"]
+
+
+class BriefSource(BaseModel):
+    id: str = Field(min_length=1)
+    citation: str
+    url: str | None = None
+    verified: bool
+
+
+class ClinicalHuddleBrief(BaseModel):
+    question: str = Field(min_length=1)
+    evidence: list[BriefEvidenceItem]
+    expert_perspective: BriefExpertPerspective
+    key_takeaways: list[BriefTakeaway] = Field(min_length=1)
+    uncertainty: list[str] = Field(min_length=1)
+    sources: list[BriefSource]
+    generated_by: Literal["llm", "template", "external"]
+    disclaimer: str = Field(min_length=1)
+
+
+class SynthesisDraft(BaseModel):
+    """Fields an LLM may draft; citation/source metadata is assembled by the app."""
+
+    evidence: list[BriefEvidenceItem]
+    expert_summary: str = Field(min_length=1)
+    key_takeaways: list[BriefTakeaway]
+    uncertainty: list[str] = Field(default_factory=list)

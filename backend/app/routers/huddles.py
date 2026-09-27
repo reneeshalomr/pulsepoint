@@ -8,9 +8,10 @@ from sqlmodel import Session, select
 from app.db import get_session
 from app.models import Expert, ExpertResponse, HCPQuestion, Huddle, QuestionSignal
 from app.routers.experts import serialize_expert
-from app.schemas import ExpertResponseCreate, HuddleCreate
+from app.schemas import ClinicalHuddleBrief, ExpertResponseCreate, HuddleCreate
 from app.services.matching import DISCLAIMER, ensure_demo_experts
 from app.services.retrieval import all_sources, retrieve_for_question
+from app.services.synthesis import generate_brief, synthesis_input, validate_external_brief
 
 router = APIRouter(prefix="/api/huddles", tags=["huddles"])
 ALLOWED_STATUSES = {"awaiting_expert", "responded", "synthesized"}
@@ -86,6 +87,12 @@ def _create_response(session: Session, huddle: Huddle, question: HCPQuestion,
     return response
 
 
+def _require_stored_response(session: Session, huddle: Huddle) -> None:
+    response_id = session.exec(select(ExpertResponse.id).where(ExpertResponse.huddle_id == huddle.id)).first()
+    if response_id is None:
+        raise HTTPException(status_code=409, detail="Huddle must have an expert response before synthesis")
+
+
 def _golden_path_response(question: HCPQuestion, evidence_ids: list[str]) -> str | None:
     if question.extraction_method != "demo_cache":
         return None
@@ -147,6 +154,14 @@ def get_huddle(huddle_id: str, session: Session = Depends(get_session)) -> dict:
     return _huddle_detail(session, huddle)
 
 
+@router.get("/{huddle_id}/synthesis-input")
+def get_synthesis_input(huddle_id: str, session: Session = Depends(get_session)) -> dict:
+    huddle = session.get(Huddle, huddle_id)
+    if huddle is None:
+        raise HTTPException(status_code=404, detail="Huddle not found")
+    return synthesis_input(session, huddle)
+
+
 @router.post("/{huddle_id}/response", status_code=201)
 def submit_response(huddle_id: str, payload: ExpertResponseCreate,
                     session: Session = Depends(get_session)) -> dict:
@@ -158,7 +173,8 @@ def submit_response(huddle_id: str, payload: ExpertResponseCreate,
                                 transcript=payload.transcript, audio_url=payload.audio_url,
                                 duration_seconds=payload.duration_seconds, is_simulated=False)
     return {"huddle_id": huddle.id, "status": huddle.status,
-            "response": response.model_dump(mode="json"), "expert_disclaimer": DISCLAIMER}
+            "response": response.model_dump(mode="json"), "expert_disclaimer": DISCLAIMER,
+            "disclaimer": DISCLAIMER}
 
 
 @router.post("/{huddle_id}/simulate-response", status_code=201)
@@ -177,4 +193,52 @@ def simulate_response(huddle_id: str, session: Session = Depends(get_session)) -
     response = _create_response(session, huddle, question, huddle.expert_id, "text", text,
                                 is_simulated=True)
     return {"huddle_id": huddle.id, "status": huddle.status,
-            "response": response.model_dump(mode="json"), "expert_disclaimer": DISCLAIMER}
+            "response": response.model_dump(mode="json"), "expert_disclaimer": DISCLAIMER,
+            "disclaimer": DISCLAIMER}
+
+
+@router.post("/{huddle_id}/synthesize")
+def synthesize_huddle(huddle_id: str, session: Session = Depends(get_session)) -> dict:
+    huddle = session.get(Huddle, huddle_id)
+    if huddle is None:
+        raise HTTPException(status_code=404, detail="Huddle not found")
+    if huddle.status == "synthesized" and huddle.brief is not None:
+        return {"huddle_id": huddle.id, "status": huddle.status, "brief": huddle.brief}
+    if huddle.status != "responded":
+        raise HTTPException(status_code=409, detail="Huddle must have an expert response before synthesis")
+    _require_stored_response(session, huddle)
+    brief = generate_brief(session, huddle)
+    try:
+        # Apply the same citation and content checks to generated output before storage.
+        brief = validate_external_brief(session, huddle, brief)
+    except ValueError:
+        brief = generate_brief(session, huddle)
+    huddle.brief = brief
+    huddle.status = "synthesized"
+    huddle.updated_at = datetime.now(timezone.utc)
+    session.add(huddle)
+    session.commit()
+    session.refresh(huddle)
+    return {"huddle_id": huddle.id, "status": huddle.status, "brief": huddle.brief}
+
+
+@router.put("/{huddle_id}/brief")
+def store_external_brief(huddle_id: str, payload: ClinicalHuddleBrief,
+                         session: Session = Depends(get_session)) -> dict:
+    huddle = session.get(Huddle, huddle_id)
+    if huddle is None:
+        raise HTTPException(status_code=404, detail="Huddle not found")
+    if huddle.status not in {"responded", "synthesized"}:
+        raise HTTPException(status_code=409, detail="Huddle must have an expert response before storing a brief")
+    _require_stored_response(session, huddle)
+    try:
+        brief = validate_external_brief(session, huddle, payload.model_dump(mode="json"))
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    huddle.brief = brief
+    huddle.status = "synthesized"
+    huddle.updated_at = datetime.now(timezone.utc)
+    session.add(huddle)
+    session.commit()
+    session.refresh(huddle)
+    return {"huddle_id": huddle.id, "status": huddle.status, "brief": huddle.brief}
