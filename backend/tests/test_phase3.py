@@ -99,6 +99,32 @@ def test_evidence_search_endpoint_defaults_to_five_and_enforces_maximum(client):
     assert limited.json()["count"] <= 12
 
 
+def test_question_evidence_labels_direct_and_contextual_sources_from_source_text(client):
+    question = client.post("/api/questions", json={
+        "text": "How should treatment sequencing be considered for a patient with metastatic breast cancer after progression on first-line therapy?"
+    }).json()
+    response = client.get(f"/api/evidence/{question['question_id']}")
+    assert response.status_code == 200
+    sources = {item["id"]: item for item in response.json()["sources"]}
+    assert sources["NCT06595563"]["relevance_type"] == "direct"
+    assert sources["NCT04274504"]["relevance_type"] == "contextual"
+    assert sources["NCT03804255"]["relevance_type"] == "contextual"
+    for source_id in ("NCT06595563", "NCT04274504", "NCT03804255"):
+        source = sources[source_id]
+        assert source["external_id"] == source_id
+        assert source["verified"] is True
+        assert source["url"] == f"https://clinicaltrials.gov/study/{source_id}"
+        corpus_source = next(item for item in retrieval.load_corpus() if item["external_id"] == source_id)
+        assert source["title"] == corpus_source["title"]
+        assert source["snippet"] in corpus_source["full_text"]
+
+
+def test_generic_evidence_search_does_not_invent_relevance_categories(client):
+    response = client.get("/api/evidence/search", params={"q": "What is quantum entanglement?"})
+    assert response.status_code == 200
+    assert all("relevance_type" not in item for item in response.json()["sources"])
+
+
 def test_post_evidence_imports_only_corpus_backed_metadata(client, test_engine):
     source = retrieval.load_corpus()[0]
     source_id = source["external_id"]

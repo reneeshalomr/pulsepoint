@@ -6,7 +6,8 @@ export const QuestionSchema = z.object({
 export const EvidenceSchema = z.object({
   id: z.string(), title: z.string(), publisher: z.string(), type: z.string(), date: z.string().nullable(),
   snippet: z.string(), url: z.string().nullable(), citation: z.string().optional(), verified: z.boolean(),
-  relevance: z.number().optional(), source_type: z.string().optional(), external_id: z.string().nullable().optional(),
+  relevance: z.number().optional(), relevance_type: z.enum(["direct", "contextual"]).optional(),
+  source_type: z.string().optional(), external_id: z.string().nullable().optional(),
 });
 export const ExpertSchema = z.object({
   id: z.string(), name: z.string(), initials: z.string(), specialty: z.string(), expertise: z.array(z.string()),
@@ -34,7 +35,8 @@ export interface QuestionDTO extends ClinicalQuestion {
 }
 export interface EvidenceDTO {
   id: string; title: string; type?: string | null; source_type?: string | null; publisher: string;
-  date: string | null; url: string | null; citation?: string; relevance?: number; verified: boolean;
+  date: string | null; url: string | null; citation?: string; relevance?: number;
+  relevance_type?: "direct" | "contextual"; verified: boolean;
   snippet?: string; full_text?: string; external_id?: string | null;
 }
 export interface ExpertDTO {
@@ -69,7 +71,7 @@ export function mapHuddleDetail(dto: HuddleDetailDTO, brief: BriefDTO | null = d
   return {
     id: dto.huddle.id, createdAt: dto.huddle.created_at, status,
     question: { specialty: dto.question.specialty, condition: dto.question.condition, topic: dto.question.topic, intent: dto.question.intent, question: dto.question.question },
-    sources: dto.evidence.map((s) => ({ id: s.id, title: s.title, publisher: s.publisher, type: s.type || s.source_type || "Source", date: s.date ?? null, url: s.url ?? null, snippet: s.snippet || s.full_text || "", citation: s.citation, verified: s.verified, relevance: s.relevance, source_type: s.source_type || undefined, external_id: s.external_id })),
+    sources: dto.evidence.map((s) => ({ id: s.id, title: s.title, publisher: s.publisher, type: s.type || s.source_type || "Source", date: s.date ?? null, url: s.url ?? null, snippet: s.snippet || s.full_text || "", citation: s.citation, verified: s.verified, relevance: s.relevance, relevance_type: s.relevance_type, source_type: s.source_type || undefined, external_id: s.external_id })),
     expert: dto.expert ? { id: dto.expert.id, name: dto.expert.name, initials: initials(dto.expert.name), specialty: dto.expert.specialty,
       expertise: dto.expert.expertise, match: dto.expert.match_score, demo: dto.expert.is_demo, title: dto.expert.title,
       availability: dto.expert.availability, score_breakdown: dto.expert.score_breakdown } : null,

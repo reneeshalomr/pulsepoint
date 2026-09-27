@@ -114,8 +114,9 @@ def test_simulated_response_is_labeled_and_references_only_attached_sources(clie
     assert response.status_code == 201
     simulated = response.json()["response"]
     assert simulated["is_simulated"] is True
-    assert "fictional demo profile" in simulated["text"]
-    assert "makes no clinical claims" in simulated["text"]
+    assert simulated["text"].startswith(
+        "SYNTHETIC EXPERT PERSPECTIVE\nDEMO EXPERT / Synthetic profile\n"
+    )
     for source_id in huddle["evidence_ids"]:
         assert f"[{source_id}]" in simulated["text"]
     assert client.get(f"/api/huddles/{huddle['id']}").json()["huddle"]["status"] == "responded"
@@ -128,7 +129,36 @@ def test_non_golden_simulated_response_is_neutral(client):
     response = client.post(f"/api/huddles/{huddle_id}/simulate-response")
     assert response.status_code == 201
     assert response.json()["response"]["is_simulated"] is True
-    assert "adds no clinical evidence" in response.json()["response"]["text"]
+    text = response.json()["response"]["text"]
+    assert text.startswith("SYNTHETIC EXPERT PERSPECTIVE\nDEMO EXPERT / Synthetic profile\n")
+    assert "do not establish a universal conclusion" in text
+
+
+def test_breast_cancer_simulation_contextualizes_only_attached_trial_source(client):
+    question = create_question(
+        client,
+        "How should treatment sequencing be considered for a patient with metastatic breast cancer after progression on first-line therapy?",
+    )
+    _, created = create_huddle(client, None, question=question)
+    huddle = created.json()["huddle"]
+    assert "NCT06595563" in huddle["evidence_ids"]
+
+    result = client.post(f"/api/huddles/{huddle['id']}/simulate-response")
+    assert result.status_code == 201
+    text = result.json()["response"]["text"]
+    assert "SYNTHETIC EXPERT PERSPECTIVE" in text
+    assert "NCT06595563" in text
+    assert "HER2-positive advanced/metastatic breast cancer" in text
+    assert "progression under trastuzumab deruxtecan" in text
+    assert "does not establish a universal sequence" in text
+    assert "What I would want to know next:" in text
+    for item in ("HER2 status", "Prior therapies and response", "Biomarker testing results", "Current disease status"):
+        assert item in text
+    assert all(
+        ref in huddle["evidence_ids"]
+        for ref in ("NCT04274504", "NCT03804255")
+        if f"[{ref}]" in text
+    )
 
 
 def test_huddle_and_response_missing_ids_return_404(client):

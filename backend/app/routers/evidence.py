@@ -2,9 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlmodel import Session, select
 
 from app.db import get_session
-from app.models import EvidenceSource
+from app.models import EvidenceSource, HCPQuestion
 from app.schemas import EvidenceImport
-from app.services.retrieval import load_corpus, retrieve_for_question_with_method, search_sources_with_method
+from app.services.retrieval import (label_question_relevance, load_corpus,
+                                    retrieve_for_question_with_method, search_sources_with_method)
 
 router = APIRouter(prefix="/api/evidence", tags=["evidence"])
 
@@ -22,6 +23,7 @@ def search_evidence(
     search_query = (query if query is not None else q).strip()
     sources, method = search_sources_with_method(session, search_query, condition=condition, topic=topic,
                                                  specialty=specialty, limit=limit)
+    sources = label_question_relevance(search_query, sources, condition=condition, topic=topic)
     return {"query": search_query, "retrieval_method": method, "count": len(sources),
             "limit": limit, "sources": sources}
 
@@ -32,6 +34,10 @@ def question_evidence(question_id: str, session: Session = Depends(get_session))
         sources, method = retrieve_for_question_with_method(session, question_id)
     except LookupError:
         raise HTTPException(status_code=404, detail="Question not found")
+    question = session.get(HCPQuestion, question_id)
+    if question is not None:
+        sources = label_question_relevance(question.question, sources, condition=question.condition,
+                                           topic=question.topic)
     return {"question_id": question_id, "retrieval_method": method, "sources": sources}
 
 

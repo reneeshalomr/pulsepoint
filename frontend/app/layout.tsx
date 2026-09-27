@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./dashboard.css";
+import "./palette.css";
 export const metadata: Metadata = {
-  title: "PULSEPOINT — A better clinical conversation",
-  description:
-    "A question-driven clinical collaboration demo. Evidence, expert perspective, and a clearer next step.",
+  title: "CLINIQ — Evidence when you ask. Expertise when it matters.",
+  description: "Evidence when you ask. Expertise when it matters.",
 };
 export default function RootLayout({
   children,
