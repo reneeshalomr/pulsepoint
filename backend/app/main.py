@@ -10,6 +10,7 @@ from app.config import settings
 from app.db import engine, get_session, init_db
 from app.models import EvidenceSource, Expert
 from app.routers.questions import router as questions_router
+from app.routers.evidence import router as evidence_router
 
 
 @asynccontextmanager
@@ -27,6 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(questions_router)
+app.include_router(evidence_router)
 
 
 @app.get("/api/health")

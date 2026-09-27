@@ -31,6 +31,7 @@ class HCPQuestion(SQLModel, table=True):
 
 class EvidenceSource(SQLModel, table=True):
     id: str = Field(default_factory=new_id, primary_key=True)
+    external_id: str | None = Field(default=None, index=True)
     title: str
     source_type: str
     date: str | None = None

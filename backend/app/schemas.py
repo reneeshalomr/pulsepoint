@@ -26,3 +26,9 @@ class QuestionResponse(BaseModel):
     extraction_method: str
     confidence: float
     phi_detected: bool
+
+
+class EvidenceImport(BaseModel):
+    """Request to persist a record that already exists in the committed corpus."""
+
+    external_id: str = Field(min_length=1, max_length=80)
