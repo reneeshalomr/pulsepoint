@@ -1,0 +1,134 @@
+[
+  {
+    "id": "demo-onc-001",
+    "name": "Dr. Maya Patel",
+    "title": "Medical Oncologist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": ["Breast cancer"],
+    "topics": ["Treatment sequencing", "Clinical trials", "Guideline update"],
+    "expertise": ["Breast cancer", "Treatment sequencing", "Clinical trials", "HER2", "CDK4/6"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real clinician, practice history, or credential is represented."
+  },
+  {
+    "id": "demo-onc-002",
+    "name": "Dr. Rowan Example",
+    "title": "Oncology Specialist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": ["Lung cancer"],
+    "topics": ["Clinical trials", "Drug interactions", "Monitoring"],
+    "expertise": ["Lung cancer", "Clinical trials", "EGFR", "NSCLC", "Monitoring"],
+    "availability": "busy",
+    "bio": "Synthetic demonstration profile only. This profile has no real-world identity or credentials."
+  },
+  {
+    "id": "demo-onc-003",
+    "name": "Dr. Casey Placeholder",
+    "title": "Oncology Specialist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": ["Breast cancer", "Lung cancer"],
+    "topics": ["Side-effect management", "Access/coverage", "Monitoring"],
+    "expertise": ["Breast cancer", "Lung cancer", "Side-effect management", "Access/coverage"],
+    "availability": "offline",
+    "bio": "Synthetic demonstration profile only. No real clinician or clinical qualification is implied."
+  },
+  {
+    "id": "demo-onc-004",
+    "name": "Dr. Taylor Sample",
+    "title": "Oncology Specialist (Fictional Demo Profile)",
+    "specialty": "Oncology",
+    "conditions": ["Lung cancer"],
+    "topics": ["Treatment sequencing", "Guideline update", "Clinical trials"],
+    "expertise": ["Lung cancer", "Treatment sequencing", "Clinical trials", "EGFR", "ALK"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real-world identity or credentials are represented."
+  },
+  {
+    "id": "demo-card-001",
+    "name": "Dr. Daniel Kim",
+    "title": "Cardiology Specialist (Fictional Demo Profile)",
+    "specialty": "Cardiology",
+    "conditions": ["Atrial fibrillation", "Heart failure"],
+    "topics": ["Drug interactions", "Monitoring", "Guideline update"],
+    "expertise": ["Atrial fibrillation", "Heart failure", "Anticoagulation", "DOAC", "HFrEF"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real clinician, practice history, or credential is represented."
+  },
+  {
+    "id": "demo-card-002",
+    "name": "Dr. Alex Example",
+    "title": "Cardiology Specialist (Fictional Demo Profile)",
+    "specialty": "Cardiology",
+    "conditions": ["Heart failure"],
+    "topics": ["Treatment sequencing", "Monitoring", "Clinical trials"],
+    "expertise": ["Heart failure", "HFrEF", "SGLT2", "Ejection fraction", "Monitoring"],
+    "availability": "busy",
+    "bio": "Synthetic demonstration profile only. This profile has no real-world identity or credentials."
+  },
+  {
+    "id": "demo-card-003",
+    "name": "Dr. Jamie Sample",
+    "title": "Cardiology Specialist (Fictional Demo Profile)",
+    "specialty": "Cardiology",
+    "conditions": ["Atrial fibrillation"],
+    "topics": ["Drug interactions", "Access/coverage"],
+    "expertise": ["Atrial fibrillation", "Anticoagulation", "DOAC", "Safety"],
+    "availability": "offline",
+    "bio": "Synthetic demonstration profile only. No real clinician or clinical qualification is implied."
+  },
+  {
+    "id": "demo-card-004",
+    "name": "Dr. Morgan Placeholder",
+    "title": "Cardiology Specialist (Fictional Demo Profile)",
+    "specialty": "Cardiology",
+    "conditions": ["Heart failure", "Atrial fibrillation"],
+    "topics": ["Guideline update", "Clinical trials", "Monitoring"],
+    "expertise": ["Heart failure", "Atrial fibrillation", "Monitoring", "Clinical trials"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real-world identity or credentials are represented."
+  },
+  {
+    "id": "demo-endo-001",
+    "name": "Dr. Avery Example",
+    "title": "Endocrinology Specialist (Fictional Demo Profile)",
+    "specialty": "Endocrinology",
+    "conditions": ["Type 2 diabetes"],
+    "topics": ["Guideline update", "Monitoring", "Drug interactions"],
+    "expertise": ["Type 2 diabetes", "A1c", "Metformin", "GLP-1", "Monitoring"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real clinician, practice history, or credential is represented."
+  },
+  {
+    "id": "demo-endo-002",
+    "name": "Dr. Jordan Sample",
+    "title": "Endocrinology Specialist (Fictional Demo Profile)",
+    "specialty": "Endocrinology",
+    "conditions": ["Obesity"],
+    "topics": ["Treatment sequencing", "Access/coverage", "Monitoring"],
+    "expertise": ["Obesity", "Weight management", "Access/coverage", "Monitoring"],
+    "availability": "busy",
+    "bio": "Synthetic demonstration profile only. This profile has no real-world identity or credentials."
+  },
+  {
+    "id": "demo-endo-003",
+    "name": "Dr. Quinn Placeholder",
+    "title": "Endocrinology Specialist (Fictional Demo Profile)",
+    "specialty": "Endocrinology",
+    "conditions": ["Type 2 diabetes", "Obesity"],
+    "topics": ["Access/coverage", "Side-effect management", "Safety concern"],
+    "expertise": ["Type 2 diabetes", "Obesity", "GLP-1", "Access/coverage"],
+    "availability": "offline",
+    "bio": "Synthetic demonstration profile only. No real clinician or clinical qualification is implied."
+  },
+  {
+    "id": "demo-endo-004",
+    "name": "Dr. Robin Testprofile",
+    "title": "Endocrinology Specialist (Fictional Demo Profile)",
+    "specialty": "Endocrinology",
+    "conditions": ["Type 2 diabetes"],
+    "topics": ["Treatment sequencing", "Clinical trials", "Guideline update"],
+    "expertise": ["Type 2 diabetes", "Metformin", "A1c", "Clinical trials"],
+    "availability": "available",
+    "bio": "Synthetic demonstration profile only. No real-world identity or credentials are represented."
+  }
+]

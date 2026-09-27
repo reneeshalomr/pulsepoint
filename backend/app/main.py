@@ -11,11 +11,16 @@ from app.db import engine, get_session, init_db
 from app.models import EvidenceSource, Expert
 from app.routers.questions import router as questions_router
 from app.routers.evidence import router as evidence_router
+from app.routers.experts import router as experts_router
+from app.services.matching import ensure_demo_experts
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db()
+    from sqlmodel import Session
+    with Session(engine) as session:
+        ensure_demo_experts(session)
     yield
 
 
@@ -29,6 +34,7 @@ app.add_middleware(
 )
 app.include_router(questions_router)
 app.include_router(evidence_router)
+app.include_router(experts_router)
 
 
 @app.get("/api/health")
