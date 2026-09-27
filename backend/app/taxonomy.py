@@ -13,6 +13,10 @@ TOPICS = [
 ]
 INTENTS = ["Clinical update", "Evidence review", "Case consult", "Safety concern", "Access question"]
 OTHER = "Other"
+SPECIALTIES_WITH_OTHER = [*SPECIALTIES, OTHER]
+CONDITIONS_WITH_OTHER = [*CONDITIONS, OTHER]
+TOPICS_WITH_OTHER = [*TOPICS, OTHER]
+INTENTS_WITH_OTHER = [*INTENTS, OTHER]
 
 KEYWORDS = {
     "specialties": {
@@ -35,7 +39,7 @@ KEYWORDS = {
         "Access/coverage": ["prior auth", "coverage", "insurance", "reimbursement"],
         "Guideline update": ["guideline", "what's new", "recently", "changed", "update"],
         "Drug interactions": ["interaction", "drug-drug", "concomitant", "contraindicated"],
-        "Monitoring": ["monitoring", "monitor", "follow-up", "surveillance", "track"],
+        "Monitoring": ["monitoring", "follow-up", "surveillance", "track"],
     },
     "intents": {
         "Clinical update": ["what's new", "recently", "changed", "latest", "update"],

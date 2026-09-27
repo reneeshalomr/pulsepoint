@@ -9,6 +9,7 @@ from sqlmodel import Session, SQLModel, select
 from app.config import settings
 from app.db import engine, get_session, init_db
 from app.models import EvidenceSource, Expert
+from app.routers.questions import router as questions_router
 
 
 @asynccontextmanager
@@ -25,6 +26,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(questions_router)
 
 
 @app.get("/api/health")

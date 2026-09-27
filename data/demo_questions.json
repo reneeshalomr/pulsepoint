@@ -1,0 +1,38 @@
+[
+  {
+    "text": "I have a patient with a complicated treatment history. What's changed recently in the relevant treatment landscape, and what evidence should I review?",
+    "structure": {
+      "specialty": "Oncology",
+      "condition": "Breast cancer",
+      "topic": "Treatment sequencing",
+      "intent": "Clinical update",
+      "question": "What has changed recently in treatment sequencing for breast cancer?",
+      "key_context": ["Synthetic HR+/HER2- metastatic breast cancer", "complicated treatment history"],
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "For a patient with heart failure and reduced ejection fraction, what recent evidence should I review about SGLT2 treatment and monitoring?",
+    "structure": {
+      "specialty": "Cardiology",
+      "condition": "Heart failure",
+      "topic": "Monitoring",
+      "intent": "Evidence review",
+      "question": "What recent evidence should I review about SGLT2 treatment and monitoring in heart failure?",
+      "key_context": ["Synthetic heart failure case", "reduced ejection fraction"],
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "For a patient with type 2 diabetes, what has changed recently in evidence for GLP-1 treatment?",
+    "structure": {
+      "specialty": "Endocrinology",
+      "condition": "Type 2 diabetes",
+      "topic": "Guideline update",
+      "intent": "Clinical update",
+      "question": "What has changed recently in evidence for GLP-1 treatment in type 2 diabetes?",
+      "key_context": ["Synthetic type 2 diabetes case"],
+      "confidence": 1.0
+    }
+  }
+]
