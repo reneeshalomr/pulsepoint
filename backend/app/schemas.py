@@ -111,3 +111,38 @@ class SynthesisDraft(BaseModel):
     expert_summary: str = Field(min_length=1)
     key_takeaways: list[BriefTakeaway]
     uncertainty: list[str] = Field(default_factory=list)
+
+
+class AnalyticsCount(BaseModel):
+    name: str
+    count: int
+
+
+class UnansweredSignalCount(BaseModel):
+    topic: str
+    condition: str
+    count: int
+
+
+class EmergingTopic(BaseModel):
+    topic: str
+    last_7d: int
+    prior_7d: int
+    growth: float
+
+
+class AnalyticsDateCount(BaseModel):
+    date: str
+    count: int
+
+
+class QuestionGraphResponse(BaseModel):
+    total: int
+    by_specialty: list[AnalyticsCount]
+    by_condition: list[AnalyticsCount]
+    by_topic: list[AnalyticsCount]
+    by_intent: list[AnalyticsCount]
+    unanswered: list[UnansweredSignalCount]
+    emerging: list[EmergingTopic]
+    timeseries: list[AnalyticsDateCount]
+    includes_seeded_data: bool

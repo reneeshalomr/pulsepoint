@@ -15,7 +15,9 @@ from app.routers.evidence import router as evidence_router
 from app.routers.experts import router as experts_router
 from app.routers.huddles import router as huddles_router
 from app.routers.audio import AUDIO_DIR, router as audio_router
+from app.routers.analytics import router as analytics_router
 from app.services.matching import ensure_demo_experts
+from scripts.seed import ensure_demo_signals
 
 
 @asynccontextmanager
@@ -24,6 +26,7 @@ async def lifespan(_: FastAPI):
     from sqlmodel import Session
     with Session(engine) as session:
         ensure_demo_experts(session)
+        ensure_demo_signals(session)
     yield
 
 
@@ -40,6 +43,7 @@ app.include_router(evidence_router)
 app.include_router(experts_router)
 app.include_router(huddles_router)
 app.include_router(audio_router)
+app.include_router(analytics_router)
 app.mount("/static/audio", StaticFiles(directory=AUDIO_DIR), name="audio")
 
 
