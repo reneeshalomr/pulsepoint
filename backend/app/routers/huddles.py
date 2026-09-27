@@ -1,6 +1,4 @@
 from datetime import datetime, timezone
-import json
-from pathlib import Path
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlmodel import Session, select
@@ -15,7 +13,6 @@ from app.services.synthesis import generate_brief, synthesis_input, validate_ext
 
 router = APIRouter(prefix="/api/huddles", tags=["huddles"])
 ALLOWED_STATUSES = {"awaiting_expert", "responded", "synthesized"}
-DEMO_QUESTIONS_PATH = Path(__file__).resolve().parents[3] / "data" / "demo_questions.json"
 
 
 def _source_identity(source: dict) -> set[str]:
@@ -93,18 +90,61 @@ def _require_stored_response(session: Session, huddle: Huddle) -> None:
         raise HTTPException(status_code=409, detail="Huddle must have an expert response before synthesis")
 
 
-def _golden_path_response(question: HCPQuestion, evidence_ids: list[str]) -> str | None:
-    if question.extraction_method != "demo_cache":
-        return None
-    try:
-        entries = json.loads(DEMO_QUESTIONS_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return None
-    for entry in entries if isinstance(entries, list) else []:
-        structure = entry.get("structure", {})
-        if structure.get("question") == question.question and entry.get("simulated_response"):
-            return entry["simulated_response"].format(evidence_refs=", ".join(f"[{item}]" for item in evidence_ids) or "none")
-    return None
+def _simulated_expert_perspective(session: Session, huddle: Huddle) -> str:
+    """Create a concise demo perspective using only source records attached to this huddle."""
+    sources = [
+        source
+        for source in all_sources(session)
+        if _source_identity(source) & set(huddle.evidence_ids)
+    ]
+    by_external_id = {source.get("external_id"): source for source in sources}
+    trial = by_external_id.get("NCT06595563")
+    trial_text = (trial or {}).get("full_text", "").casefold()
+    refs = " ".join(f"[{source.get('external_id') or source.get('id')}]" for source in sources)
+
+    if (
+        trial
+        and trial.get("verified") is True
+        and trial.get("url")
+        and "her2-positive advanced/metastatic breast cancer" in trial_text
+        and "progression under trastuzumab deruxtecan" in trial_text
+    ):
+        context = (
+            "Subtype and biomarker status are important context. [NCT06595563] describes a phase "
+            "II study in HER2-positive advanced/metastatic breast cancer after progression under "
+            "trastuzumab deruxtecan; its description does not establish a universal sequence."
+        )
+        other_ids = {source.get("external_id") for source in sources}
+        broader = []
+        if "NCT04274504" in other_ids:
+            broader.append("[NCT04274504] adds metastatic breast cancer context")
+        if "NCT03804255" in other_ids:
+            broader.append("[NCT03804255] describes biomarker-testing practices")
+        if broader:
+            context += " " + "; ".join(broader) + ". These records add context but do not establish a universal sequence."
+        return (
+            "SYNTHETIC EXPERT PERSPECTIVE\n"
+            "DEMO EXPERT / Synthetic profile\n"
+            f"{context}\n\n"
+            "What I would want to know next:\n"
+            "• HER2 status\n"
+            "• Prior therapies and response\n"
+            "• Biomarker testing results\n"
+            "• Current disease status"
+        )
+
+    references = f" Attached source records: {refs}." if refs else " No source records are attached."
+    return (
+        "SYNTHETIC EXPERT PERSPECTIVE\n"
+        "DEMO EXPERT / Synthetic profile\n"
+        "The attached records can frame discussion, but their relevance depends on the "
+        "populations and settings described in their source text. They do not establish a "
+        f"universal conclusion for this question.{references}\n\n"
+        "What I would want to know next:\n"
+        "• Which population and clinical context the question concerns\n"
+        "• Which prior interventions and outcomes are relevant\n"
+        "• What uncertainties remain"
+    )
 
 
 @router.post("", status_code=201)
@@ -185,11 +225,7 @@ def simulate_response(huddle_id: str, session: Session = Depends(get_session)) -
     question = session.get(HCPQuestion, huddle.question_id)
     if question is None:
         raise HTTPException(status_code=404, detail="Question not found")
-    text = _golden_path_response(question, huddle.evidence_ids)
-    if text is None:
-        references = ", ".join(f"[{source_id}]" for source_id in huddle.evidence_ids)
-        text = ("Simulated neutral response from a fictional demo profile. This response adds no clinical evidence. "
-                f"Please review only the attached retrieved source IDs: {references or 'none'}. ")
+    text = _simulated_expert_perspective(session, huddle)
     response = _create_response(session, huddle, question, huddle.expert_id, "text", text,
                                 is_simulated=True)
     return {"huddle_id": huddle.id, "status": huddle.status,

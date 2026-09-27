@@ -160,6 +160,45 @@ def search_sources(session: Session | None, query: str, *, condition: str | None
                                       specialty=specialty, limit=limit)[0]
 
 
+def label_question_relevance(question: str, sources: list[dict], *, condition: str | None,
+                             topic: str | None) -> list[dict]:
+    """Add direct/contextual labels only when a result matches question anchors.
+
+    A direct label requires the condition, a distinctive topic term, and any
+    explicit progression context in the question to appear in source text.
+    Other returned sources are contextual only when a direct match exists.
+    """
+    if not sources or not condition or not topic:
+        return sources
+    question_tokens = set(tokenize(question))
+    condition_tokens = set(tokenize(condition))
+    topic_tokens = set(tokenize(topic))
+    topic_anchors = {token for token in topic_tokens if len(token) > 5}
+    if not question_tokens & topic_anchors:
+        return sources
+
+    progression_anchors = {"progression", "progressed", "relapse", "refractory"}
+    progression_requested = bool(question_tokens & progression_anchors)
+    direct_indexes: set[int] = set()
+    for index, source in enumerate(sources):
+        text = f"{source.get('title', '')} {source.get('snippet', '')}".casefold()
+        source_tokens = set(tokenize(text))
+        if not condition_tokens.issubset(source_tokens):
+            continue
+        if not source_tokens & topic_anchors:
+            continue
+        if progression_requested and not source_tokens & progression_anchors:
+            continue
+        direct_indexes.add(index)
+
+    if not direct_indexes:
+        return sources
+    return [
+        {**source, "relevance_type": "direct" if index in direct_indexes else "contextual"}
+        for index, source in enumerate(sources)
+    ]
+
+
 @lru_cache(maxsize=512)
 def _cached_question_results(question_id: str, question_text: str, condition: str,
                              topic: str, specialty: str, limit: int) -> tuple[dict, ...]:

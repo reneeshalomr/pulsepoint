@@ -36,8 +36,8 @@ const viewTitles: Record<View, string> = {
   home: "My workspace",
   understanding: "Question understanding",
   evidence: "Your huddle",
-  expert: "Expert workspace",
-  brief: "Huddle brief",
+  expert: "Expert perspective",
+  brief: "Clinical Huddle Brief",
   graph: "Question intelligence",
 };
 
@@ -205,7 +205,7 @@ export function Pulsepoint() {
             e.preventDefault();
             navigate("home");
           }}
-          aria-label="PULSEPOINT home"
+          aria-label="CLINIQ home"
         >
           <Brand />
         </a>
@@ -245,7 +245,7 @@ export function Pulsepoint() {
             onClick={() => navigate("graph")}
             disabled={busy}
           >
-            <Network size={18} /> Question graph
+            <Network size={18} /> Question intelligence
           </button>
         </nav>
         <div className="sidebar-note">
@@ -481,7 +481,7 @@ export function Pulsepoint() {
                   </span>
                   <h1 ref={heading} tabIndex={-1}>
                     {view === "graph"
-                      ? "What HCPs are asking."
+                      ? "Questions worth exploring."
                       : view === "understanding"
                         ? "Let’s get the question right."
                         : view === "evidence"
@@ -583,7 +583,7 @@ export function Pulsepoint() {
                     <section>
                       <div className="section-label">
                         <h2>
-                          Evidence to explore{" "}
+                          Evidence{" "}
                           <span className="count-tag">
                             {current.sources.length}
                           </span>
@@ -640,17 +640,33 @@ export function Pulsepoint() {
                               <span>%</span>
                             </strong>
                             <div>
-                              Expertise match
+                              Question-to-expertise match
                               <small>
                                 Relevance score, not medical certainty
                               </small>
                             </div>
                           </div>
-                          <div className="expert-tags">
-                            {current.expert.expertise.map((t) => (
-                              <span key={t}>{t}</span>
-                            ))}
-                          </div>
+                          <section className="expert-match-why">
+                            <h3>WHY THIS EXPERT?</h3>
+                            <p>Matched to the question, not just the specialty.</p>
+                            {current.expert.score_breakdown && (
+                              <div className="match-factors" aria-label="Question match factors">
+                                {Object.entries(current.expert.score_breakdown)
+                                  .filter(([, value]) => value > 0)
+                                  .map(([factor, value]) => (
+                                    <span key={factor}>
+                                      <Check size={12} /> {factor.replaceAll("_", " ")} +{value}
+                                    </span>
+                                  ))}
+                              </div>
+                            )}
+                            <h4>Matched expertise</h4>
+                            <div className="expert-tags">
+                              {current.expert.expertise.map((item) => (
+                                <span key={item}><Check size={12} /> {item}</span>
+                              ))}
+                            </div>
+                          </section>
                           <div className="expert-context">
                             <Check size={16} />
                             <p>
@@ -725,7 +741,7 @@ export function Pulsepoint() {
           )}
           <footer className="page-footer">
             <span>
-              <Activity size={14} /> PULSEPOINT
+              <Activity size={14} /> CLINIQ
             </span>
             <span>
               HackGT 13 prototype ·{" "}
@@ -759,8 +775,9 @@ export function Pulsepoint() {
         </div>
         <h2>A clinical conversation, reimagined.</h2>
         <p>
-          PULSEPOINT is a HackGT prototype that connects questions, evidence,
-          and expert perspectives.
+          CLINIQ is a HackGT prototype that brings evidence together with
+          relevant expert context. Evidence when you ask. Expertise when it
+          matters.
         </p>
         <ul>
           <li>
@@ -771,12 +788,12 @@ export function Pulsepoint() {
             templates, not a live AI model.
           </li>
           <li>
-            Source links point to public NCI resources. Summaries are
-            descriptive and not clinical advice.
+            Evidence links point to public source records. Review each source
+            directly; the brief is a prototype synthesis, not medical advice.
           </li>
           <li>
             Demo huddles stay in this browser tab’s session storage. Live
-            huddles are not stored there.
+            huddles are managed by the connected backend.
           </li>
           <li>
             Voice input uses your browser’s speech service. Playback is

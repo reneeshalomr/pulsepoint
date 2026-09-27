@@ -82,7 +82,7 @@ describe("live adapter failures", () => {
     vi.stubEnv("NEXT_PUBLIC_API_MODE", "live");
     vi.resetModules();
     const question = { question_id: "q-1", specialty: "Oncology", condition: "Breast Cancer", topic: "Treatment Sequencing", intent: "Treatment Options", question: EXAMPLE_QUESTION, key_context: [], extraction_method: "rules", confidence: 0.9, phi_detected: false };
-    const source = { id: "PMID1", title: "Corpus source", type: "Article", date: null, snippet: "Verbatim source snippet.", url: null, citation: "Corpus citation", relevance: 0.7, verified: false, source_type: "Article", publisher: "PubMed", specialty: "Oncology", condition: "Breast Cancer", topics: ["Treatment Sequencing"], external_id: "PMID1" };
+    const source = { id: "PMID1", title: "Corpus source", type: "Article", date: null, snippet: "Verbatim source snippet.", url: null, citation: "Corpus citation", relevance: 0.7, relevance_type: "direct", verified: false, source_type: "Article", publisher: "PubMed", specialty: "Oncology", condition: "Breast Cancer", topics: ["Treatment Sequencing"], external_id: "PMID1" };
     const expert = { id: "demo-expert-1", name: "Synthetic Expert", title: "Demo profile", specialty: "Oncology", expertise: ["Breast Cancer"], match_score: 80, availability: "available", score_breakdown: { specialty: 35 }, is_demo: true };
     const detail = { huddle: { id: "h-1", question_id: "q-1", expert_id: expert.id, evidence_ids: ["PMID1"], status: "awaiting_expert", created_at: "2026-01-01T00:00:00Z", updated_at: "2026-01-01T00:00:00Z" }, question, evidence: [source], expert, responses: [], brief: null, disclaimer: "Synthetic" };
     const fetchMock = vi.fn()
@@ -97,6 +97,7 @@ describe("live adapter failures", () => {
     expect(huddle.demo).toBe(false);
     expect(huddle.status).toBe("ready");
     expect(huddle.sources[0].url).toBeNull();
+    expect(huddle.sources[0].relevance_type).toBe("direct");
     expect(huddle.expert?.match).toBe(80);
     expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([
       "http://localhost:8000/api/questions",

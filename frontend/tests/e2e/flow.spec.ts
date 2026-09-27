@@ -39,7 +39,7 @@ test("complete huddle, export brief, retain session, and filter graph", async ({
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download brief" }).click();
   expect((await download).suggestedFilename()).toBe(
-    "pulsepoint-huddle-brief.txt",
+    "cliniq-huddle-brief.txt",
   );
   await page.reload();
   await expect(

@@ -932,6 +932,43 @@ nav button.active {
 .evidence-list {
   margin-top: 20px;
 }
+.evidence-list-classified {
+  margin-top: 14px;
+}
+.evidence-relevance-note {
+  display: flex;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.evidence-group + .evidence-group {
+  margin-top: 24px;
+}
+.relevance-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+.relevance-badge.direct {
+  color: #496744;
+  background: #e7eedf;
+}
+.relevance-badge.contextual {
+  color: #777354;
+  background: #f2f0e5;
+}
+.relevance-badge.other {
+  color: #718075;
+  background: #edf0eb;
+}
 .evidence-card {
   display: flex;
   gap: 16px;
@@ -1092,6 +1129,48 @@ nav button.active {
   border-radius: 4px;
   font-size: 9px;
   color: #82936b;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.expert-match-why {
+  padding: 14px 0 4px;
+}
+.expert-match-why h3,
+.expert-match-why h4 {
+  color: #60794f;
+  font-size: 9px;
+  letter-spacing: 0.9px;
+  margin-bottom: 8px;
+}
+.expert-match-why > p {
+  color: #71836b;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.expert-match-why h4 {
+  color: #879475;
+  margin: 15px 0 0;
+}
+.expert-match-why .expert-tags {
+  margin: 10px 0 4px;
+}
+.match-factors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.match-factors span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border: 1px solid #e5ebde;
+  border-radius: 4px;
+  color: #78886b;
+  font-size: 8px;
+  text-transform: capitalize;
 }
 .expert-context {
   display: flex;
@@ -1269,6 +1348,102 @@ nav button.active {
   color: #819173;
   line-height: 1.85;
   margin-bottom: 10px;
+}
+.brief-layer-copy {
+  color: #87927f !important;
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+  margin: -6px 0 14px !important;
+}
+.patient-review-prompt {
+  margin: 0 30px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  border: 1px solid #e4eadc;
+  border-radius: 7px;
+  background: #fbfcf8;
+}
+.patient-review-prompt .eyebrow {
+  color: #788d68;
+}
+.patient-review-prompt p {
+  flex: 1 1 100%;
+  color: #74816f;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.review-dialog {
+  width: min(510px, calc(100% - 32px));
+  max-height: min(88vh, 720px);
+  overflow-y: auto;
+  padding: 27px;
+  border: 1px solid #dfe6d9;
+  border-radius: 10px;
+  color: var(--text);
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(34, 52, 39, 0.2);
+}
+.review-dialog::backdrop {
+  background: rgba(27, 42, 33, 0.42);
+  backdrop-filter: blur(2px);
+}
+.review-dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review-dialog h2 {
+  margin: 17px 0 9px;
+  color: #46633e;
+  font: 25px/1.25 Georgia, serif;
+}
+.review-dialog > p {
+  color: #75816f;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.review-dialog h3 {
+  margin: 20px 0 10px;
+  color: #5f7654;
+  font-size: 11px;
+}
+.review-context-list {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 17px;
+  padding: 0;
+  list-style: none;
+  color: #697962;
+  font-size: 11px;
+}
+.review-context-list li,
+.review-confirmation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.review-context-list svg,
+.review-confirmation svg {
+  color: #78966a;
+  flex: none;
+}
+.review-dialog .review-safety-note {
+  margin: 18px 0;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: #f5f7f0;
+  color: #75816f;
+  font-size: 9px;
+}
+.review-confirmation {
+  padding: 12px;
+  border-radius: 5px;
+  background: #eef4e8;
+  color: #58724d;
+  font-size: 10px;
 }
 .inline-citations {
   display: flex;

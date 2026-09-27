@@ -39,10 +39,10 @@ export function ExpertResponse({
             {huddle.expert?.initials || "EX"}
           </span>
           <div>
-            <h3>{huddle.expert?.name || "Expert response"}</h3>
+            <h3>{huddle.expert?.name || "Expert perspective"}</h3>
             <p>
               {huddle.expert?.demo
-                ? "Fictional expert · demo workspace"
+                ? "DEMO EXPERT / Synthetic profile"
                 : huddle.expert?.specialty}
             </p>
           </div>
@@ -96,7 +96,7 @@ export function ExpertResponse({
             disabled={busy}
             onClick={onSimulate}
           >
-            <Sparkles size={14} /> Use simulated response
+            <Sparkles size={14} /> Use synthetic expert perspective
           </button>
         )}
         <button

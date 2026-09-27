@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Check,
   Copy,
@@ -9,22 +9,32 @@ import {
   ArrowUpRight,
   ShieldCheck,
   Info,
+  X,
 } from "lucide-react";
 import type { Huddle } from "@/types/huddle";
 
 export function HuddleBrief({ huddle }: { huddle: Huddle }) {
   const [speaking, setSpeaking] = useState(false);
   const [notice, setNotice] = useState("");
+  const [reviewOpen, setReviewOpen] = useState(false);
+  const [reviewPrepared, setReviewPrepared] = useState(false);
+  const reviewDialog = useRef<HTMLDialogElement>(null);
   useEffect(
     () => () => {
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     },
     [],
   );
+  useEffect(() => {
+    const dialog = reviewDialog.current;
+    if (!dialog) return;
+    if (reviewOpen && !dialog.open) dialog.showModal();
+    if (!reviewOpen && dialog.open) dialog.close();
+  }, [reviewOpen]);
   if (!huddle.brief)
-    return <p>This huddle is waiting for an expert response.</p>;
+    return <p>This huddle is waiting for an expert perspective.</p>;
   const brief = huddle.brief;
-  const text = `PULSEPOINT — CLINICAL HUDDLE BRIEF\n${brief.synthesisLabel}\n\nQUESTION\n${huddle.question.question}\n\nEVIDENCE\n${brief.evidence.join("\n")}\n\nEXPERT PERSPECTIVE${huddle.responseIsSimulated ? " (SIMULATED EXPERT RESPONSE)" : ""}\n${huddle.response}\n\nAI SYNTHESIS\n${brief.takeaways.map((t) => `• ${t}`).join("\n")}\n\nUNCERTAINTY\n${brief.uncertainty}\n\nSOURCES\n${huddle.sources.map((s) => `${s.title}\n${s.citation || s.publisher}${s.url ? `\n${s.url}` : ""}`).join("\n\n")}`;
+  const text = `CLINIQ — CLINICAL HUDDLE BRIEF\n${brief.synthesisLabel}\n\nQUESTION\n${huddle.question.question}\n\nEVIDENCE\n${brief.evidence.join("\n")}\n\nSYNTHETIC EXPERT PERSPECTIVE${huddle.responseIsSimulated ? " (DEMO)" : ""}\n${huddle.response}\n\nAI SYNTHESIS\n${brief.takeaways.map((t) => `• ${t}`).join("\n")}\n\nUNCERTAINTY\n${brief.uncertainty}\n\nSOURCES\n${huddle.sources.map((s) => `${s.title}\n${s.citation || s.publisher}${s.url ? `\n${s.url}` : ""}`).join("\n\n")}`;
   async function copy() {
     try {
       await navigator.clipboard.writeText(text);
@@ -39,7 +49,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
     );
     const link = document.createElement("a");
     link.href = url;
-    link.download = "pulsepoint-huddle-brief.txt";
+    link.download = "cliniq-huddle-brief.txt";
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
@@ -71,7 +81,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
     <div className="brief-layout">
       <article className="brief-paper">
         <div className="brief-masthead">
-          <span className="eyebrow">PULSEPOINT / CLINICAL HUDDLE BRIEF</span>
+          <span className="eyebrow">CLINIQ / CLINICAL HUDDLE BRIEF</span>
           <span className="complete-label">
             <Check size={14} /> Huddle complete
           </span>
@@ -87,9 +97,9 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
         <section className="brief-section">
           <div className="brief-section-heading">
             <span className="section-index">02</span>
-            <h3>What the evidence says</h3>
-            <span className="tiny-tag">CURATED SOURCES</span>
+            <h3>EVIDENCE</h3>
           </div>
+          <p className="brief-layer-copy">What the retrieved sources say.</p>
           {brief.evidence.map((line) => (
             <p key={line}>{line}</p>
           ))}
@@ -102,11 +112,14 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
         <section className="brief-section">
           <div className="brief-section-heading">
             <span className="section-index">03</span>
-            <h3>Expert perspective</h3>
+            <h3>EXPERT PERSPECTIVE</h3>
             <span className="tiny-tag">
-              {huddle.responseIsSimulated ? "SIMULATED EXPERT RESPONSE" : huddle.expert?.demo ? "SYNTHETIC DEMO PROFILE" : "EXPERT PERSPECTIVE"}
+              {huddle.responseIsSimulated ? "SYNTHETIC EXPERT PERSPECTIVE" : huddle.expert?.demo ? "SYNTHETIC DEMO PROFILE" : "EXPERT PERSPECTIVE"}
             </span>
           </div>
+          <p className="brief-layer-copy">
+            How relevant expertise can contextualize the evidence.
+          </p>
           <blockquote>{huddle.response}</blockquote>
           <div className="expert-byline">
             <span className="avatar small-avatar">
@@ -122,14 +135,31 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
             </span>
           </div>
         </section>
+        <section className="patient-review-prompt">
+          <span className="eyebrow">PATIENT-SPECIFIC REVIEW</span>
+          <p>Some clinical questions require additional patient context before expert review.</p>
+          <button
+            className="button secondary compact"
+            type="button"
+            onClick={() => {
+              setReviewPrepared(false);
+              setReviewOpen(true);
+            }}
+          >
+            Prepare case for expert review
+          </button>
+        </section>
         <section className="brief-section takeaways">
           <div className="brief-section-heading">
             <span className="section-index">04</span>
-            <h3>Key takeaways</h3>
+            <h3>AI SYNTHESIS</h3>
             <span className="tiny-tag">
-              {brief.generatedBy === "template" ? "DETERMINISTIC BACKEND SYNTHESIS" : "AI SYNTHESIS"}
+              {brief.generatedBy === "template" ? "DETERMINISTIC TEMPLATE" : brief.generatedBy === "llm" ? "AI-GENERATED" : "EXTERNAL SYNTHESIS"}
             </span>
           </div>
+          <p className="brief-layer-copy">
+            A structured synthesis of the retrieved evidence and expert perspective.
+          </p>
           <ul>
             {brief.takeaways.map((t) => (
               <li key={t}>
@@ -142,12 +172,18 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
         <section className="uncertainty">
           <Info size={20} />
           <div>
-            <h3>What remains uncertain</h3>
+            <div className="brief-section-heading">
+              <span className="section-index">05</span>
+              <h3>WHAT REMAINS UNCERTAIN</h3>
+            </div>
             <p>{brief.uncertainty}</p>
           </div>
         </section>
         <section className="brief-section sources-section">
-          <h3>Sources & references</h3>
+          <div className="brief-section-heading">
+            <span className="section-index">06</span>
+            <h3>SOURCES & REFERENCES</h3>
+          </div>
           <ol>
             {huddle.sources.map((s) => (
               <li key={s.id}>
@@ -187,7 +223,7 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
           </p>
           <button className="text-button" onClick={speak}>
             {speaking ? <Pause size={15} /> : <Headphones size={15} />}{" "}
-            {speaking ? "Stop playback" : "Play response"}
+            {speaking ? "Stop playback" : "Play perspective"}
           </button>
         </div>
         {notice && (
@@ -196,6 +232,57 @@ export function HuddleBrief({ huddle }: { huddle: Huddle }) {
           </p>
         )}
       </aside>
+      <dialog
+        ref={reviewDialog}
+        className="review-dialog"
+        aria-labelledby="patient-review-title"
+        onCancel={(event) => {
+          event.preventDefault();
+          setReviewOpen(false);
+        }}
+        onClose={() => setReviewOpen(false)}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) setReviewOpen(false);
+        }}
+      >
+        <div className="review-dialog-heading">
+          <span className="eyebrow">PATIENT-SPECIFIC REVIEW</span>
+          <button
+            className="icon-button"
+            type="button"
+            aria-label="Close patient-specific review preview"
+            onClick={() => setReviewOpen(false)}
+          >
+            <X size={19} />
+          </button>
+        </div>
+        <h2 id="patient-review-title">Prepare a case for expert review</h2>
+        <p>
+          Additional clinical context would be needed for a patient-specific expert review.
+        </p>
+        <h3>Context requested</h3>
+        <ul className="review-context-list">
+          {["Age", "Disease subtype", "Prior treatment history", "Biomarker results", "Current disease status"].map((item) => (
+            <li key={item}><Check size={15} /> {item}</li>
+          ))}
+        </ul>
+        <p className="review-safety-note">
+          Prototype only. No patient information is collected, stored, or sent, and no real clinician is contacted.
+        </p>
+        {reviewPrepared ? (
+          <div className="review-confirmation" role="status">
+            <Check size={16} /> Preview prepared. Nothing was submitted or shared.
+          </div>
+        ) : (
+          <button
+            className="button primary full"
+            type="button"
+            onClick={() => setReviewPrepared(true)}
+          >
+            Prepare expert review
+          </button>
+        )}
+      </dialog>
     </div>
   );
 }
